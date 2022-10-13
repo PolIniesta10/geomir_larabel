@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +15,4 @@ use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/', function () {
-   Log::info('Loading welcome page');
-   return view('welcome');
 });
