@@ -25,3 +25,4 @@ Route::get('/', function () {
 });
 
 Route::get('mail/test', [MailController::class, 'test']);
+
