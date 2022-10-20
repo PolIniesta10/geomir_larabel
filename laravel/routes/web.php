@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\FileController;
 
 
 /*
@@ -34,3 +35,9 @@ Route::get('mail/test', [MailController::class, 'test']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('files', FileController::class);
