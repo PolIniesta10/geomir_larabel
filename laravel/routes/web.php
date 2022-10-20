@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,10 @@ use App\Http\Controllers\MailController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    $message = 'Loading welcome page';
+    Log::info($message);
+    $request->session()->flash('info', $message);
     return view('welcome');
 });
 
@@ -25,3 +30,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('mail/test', [MailController::class, 'test']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
