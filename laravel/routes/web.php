@@ -32,12 +32,11 @@ require __DIR__.'/auth.php';
 
 Route::get('mail/test', [MailController::class, 'test']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('files', FileController::class);
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('files', FileController::class);
@@ -45,3 +44,6 @@ Route::resource('files', FileController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+>>>>>>> a0e520c550624a46c041d554f3fa901c264dc3e7

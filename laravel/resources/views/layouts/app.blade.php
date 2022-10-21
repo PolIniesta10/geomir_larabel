@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@include('flash')
+>>>>>>> a0e520c550624a46c041d554f3fa901c264dc3e7
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
