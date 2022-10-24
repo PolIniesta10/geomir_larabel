@@ -15,6 +15,8 @@
                                <td scope="col">Filesize</td>
                                <td scope="col">Created</td>
                                <td scope="col">Updated</td>
+                               <td scope="col">Edit</td>
+                               <td scope="col">Delete</td>
                            </tr>
                        </thead>
                        <tbody>
@@ -25,6 +27,8 @@
                                <td>{{ $file->filesize }}</td>
                                <td>{{ $file->created_at }}</td>
                                <td>{{ $file->updated_at }}</td>
+                               <td><a href="{{ route('files.edit') }}" class="edit_btn" >Edit</a></td>
+                               <td><a href="delete.blade.php?={{ $file->id }};" class="del_btn">Delete</a></td>
                            </tr>
                            @endforeach
                        </tbody>
