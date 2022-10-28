@@ -26,12 +26,12 @@
                                <td>{{ $file->updated_at }}</td>
                            </tr>
                            <tr>
-                               <td><img class="img-fluid" src="{{ asset(storage/{$file->filepath}) }} "/></td>
+                               <td scope="col">img</td>
+                               <td><img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" /></td>
                            </tr>
                        </tbody>
                    </table>
-                   <a class="btn btn-primary" href="{{ route('files.edit') }}" role="button">Editar</a>
-                   <a class="btn btn-primary" href="{{ route('files.destroy') }}" role="button">Eliminar</a>
+                   <a class="btn btn-primary" href="{{ route('files.index') }}" role="button">Volver</a>
                </div>
            </div>
        </div>
