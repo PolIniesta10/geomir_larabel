@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class FileController extends Controller
 {
@@ -87,9 +89,7 @@ class FileController extends Controller
      */
     public function show(File $file)
     {
-        return view("files.show", [
-            "file" => $file
-        ]);
+        return view("files.show", ["file"  => $file]);
     }
 
     /**
@@ -100,7 +100,7 @@ class FileController extends Controller
      */
     public function edit(File $file)
     {
-        return view('files.edit', compact('file'));
+        return view('files.edit', compact('file')); 
     }
 
     /**
@@ -112,11 +112,11 @@ class FileController extends Controller
      */
     public function update(Request $request, File $file)
     {
-
+        // Validar fitxer
         $validatedData = $request->validate([
-            'upload' => 'required|mimes:gif,jpeg,jpg,png|max:1024'
+        'upload' => 'mimes:gif,jpeg,jpg,png|max:1024'
         ]);
-        
+    
         // Obtenir dades del fitxer
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
@@ -149,7 +149,6 @@ class FileController extends Controller
             return redirect()->route("files.create")
                 ->with('error', 'ERROR uploading file');
         }
-
     }
 
     /**
@@ -162,6 +161,6 @@ class FileController extends Controller
     {
         $file->delete();
  
-        return redirect('/files')->with('success', 'Archivo eliminado.');
+        return redirect('/files')->with('success', 'Stock removed.');
     }
 }

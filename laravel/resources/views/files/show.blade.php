@@ -26,6 +26,7 @@
                                <td>{{ $file->updated_at }}</td>
                            </tr>
                            <tr>
+                               <td scope="col">img</td>
                                <td><img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" /></td>
                            </tr>
                        </tbody>
