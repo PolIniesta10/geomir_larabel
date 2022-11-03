@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigInteger('id', 20);
-            $table->varchar('body', 255);
-            $table->bigInteger('file_id', 20);
-            $table->float('latitude');
-            $table->float('longitude');
-            $table->bigInteger('visibility_id', 20);
-            $table->bigInteger('author_id', 20);
+            $table->id();
+            $table->string('body');
+            $table->unsignedBigInteger('file_id');
+            $table->foreign('file_id')->references('id')->on('files');
+            $table->float('latitude',8,2);
+            $table->float('longitude',8,2);
+            $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users');
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 
