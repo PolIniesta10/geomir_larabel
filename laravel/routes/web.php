@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
-
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,8 @@ require __DIR__.'/auth.php';
 Route::get('mail/test', [MailController::class, 'test']);
 
 Route::resource('files', FileController::class);
+
+Route::resource('posts', PostController::class);
 
 Auth::routes();
 
