@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -85,6 +86,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $file=File::find($post->file_id);
         return view("posts.show", ["post"  => $post]);
     }
 
