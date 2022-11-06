@@ -27,7 +27,7 @@
                            </tr>
                            <tr>
                                <td scope="col">img</td>
-                               <td><img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" /></td>
+                               <td><img class="img-fluid" src="{{ asset("storage/{$post->filepath}") }}" /></td>
                            </tr>
                        </tbody>
                    </table>

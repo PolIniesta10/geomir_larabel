@@ -13,6 +13,8 @@ class Post extends Model
         'body',
         'latitude',
         'longitude',
+        'file_id',
+        'author_id',
     ];
     public function file()
     {

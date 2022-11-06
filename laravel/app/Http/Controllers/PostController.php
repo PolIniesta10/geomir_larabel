@@ -40,13 +40,19 @@ class PostController extends Controller
     {
         // Validar fitxer
         $validatedData = $request->validate([
-            'upload' => 'required|mimes:gif,jpeg,jpg,png|max:1024'
+            'upload' => 'required|mimes:gif,jpeg,jpg,png,video/avi,video/mp4,video/3gpp,video/mpg,video/mpeg,video/x-mpeg,video/x-msvideo,
+            video/x-ms-wm,video/x-ms-wmv,video/x-ms-asf,video/x-la-asf,video/x-msvideo,video/x-sgi-movie,video/quicktime,video/vnd.rn-realvideo,audio/vnd.rn-realmedia,application/x-shockwave-flash,
+            application/octet-stream|max:2048'
         ]);
     
         // Obtenir dades del fitxer
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
         $fileSize = $upload->getSize();
+        $latitude = $request->get('latitude');
+        $longitude = $request->get('longitude');
+        $body = $request->get('body');
+
         \Log::debug("Storing file '{$fileName}' ($fileSize)...");
 
         // Pujar fitxer al disc dur
@@ -62,9 +68,16 @@ class PostController extends Controller
             $fullPath = \Storage::disk('public')->path($filePath);
             \Log::debug("File saved at {$fullPath}");
             // Desar dades a BD
-            $post = Post::create([
+            $file = File::create([
                 'filepath' => $filePath,
                 'filesize' => $fileSize,
+            ]);
+            $post = Post::create([
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'body' => $body,
+                'file_id' => $file->id,
+                'author_id'=>auth()->user()->id,
             ]);
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
@@ -108,16 +121,22 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post, File $file)
     {
         $validatedData = $request->validate([
-            'upload' => 'mimes:gif,jpeg,jpg,png|max:1024'
+            'upload' => 'mimes:gif,jpeg,jpg,png,video/avi,video/mp4,video/3gpp,video/mpg,video/mpeg,video/x-mpeg,video/x-msvideo,
+            video/x-ms-wm,video/x-ms-wmv,video/x-ms-asf,video/x-la-asf,video/x-msvideo,video/x-sgi-movie,video/quicktime,video/vnd.rn-realvideo,audio/vnd.rn-realmedia,application/x-shockwave-flash,
+            application/octet-stream|max:2048'
         ]);
     
         // Obtenir dades del fitxer
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
         $fileSize = $upload->getSize();
+        $latitude = $request->get('latitude');
+        $longitude = $request->get('longitude');
+        $body = $request->get('body');
+
         \Log::debug("Storing file '{$fileName}' ($fileSize)...");
 
         // Pujar fitxer al disc dur
@@ -133,8 +152,12 @@ class PostController extends Controller
             $fullPath = \Storage::disk('public')->path($filePath);
             \Log::debug("File saved at {$fullPath}");
             // Desar dades a BD
-            $post->filepath = $filePath;
-            $post->filesize = $fileSize;
+
+            $post->file()->filepath = $filePath;
+            $post->file()->filesize = $fileSize;
+            $post->latitude = $latitude;
+            $post->longitude = $longitude;
+            $post->body = $body;
             $post->save();
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
@@ -157,7 +180,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
- 
+        
         return redirect('/posts')->with('success', 'Stock removed.');
     }
 }

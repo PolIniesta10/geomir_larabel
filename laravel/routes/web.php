@@ -32,9 +32,9 @@ require __DIR__.'/auth.php';
 
 Route::get('mail/test', [MailController::class, 'test']);
 
-Route::resource('files', FileController::class);
+Route::resource('files', FileController::class)->middleware(['auth', 'role:1,2']);
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->middleware(['auth', 'role:1']);
 
 Auth::routes();
 
