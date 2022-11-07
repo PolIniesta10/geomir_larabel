@@ -5,6 +5,8 @@ use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PlaceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,8 @@ Route::get('mail/test', [MailController::class, 'test']);
 Route::resource('files', FileController::class)->middleware(['auth', 'role:1,2']);
 
 Route::resource('posts', PostController::class)->middleware(['auth', 'role:1']);
+
+Route::resource('places', PlaceController::class);
 
 Auth::routes();
 
