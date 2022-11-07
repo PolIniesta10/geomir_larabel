@@ -39,6 +39,19 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group">
+                            <label for="upload">Name:</label>
+                            <input type="text" class="form-control" name="name"/>
+                            <br>
+                            <label for="upload">Description:</label>
+                            <br>
+                            <textarea name="description" rows="4" cols="98"></textarea>
+                            <br><br>
+                            <label for="upload">Latitude:</label>
+                            <input type="text" class="form-control" name="latitude"/>
+                            <br>
+                            <label for="upload">Longitude:</label>
+                            <input type="text" class="form-control" name="longitude"/>
+                            <br>
                             <label for="upload">File:</label>
                             <input type="file" class="form-control" name="upload"/>
                         </div>

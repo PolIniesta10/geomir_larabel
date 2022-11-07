@@ -31,9 +31,9 @@
                                <td>{{ $place->longitude }}</td>
                                <td>{{ $place->created_at }}</td>
                                <td>{{ $place->updated_at }}</td>
-                               <td><a href="{{ route('place.edit',$place->id) }}">Editar</a></td>
+                               <td><a class="btn btn-primary" href="{{ route('places.edit',$place->id) }}">Editar</a></td>
                                <td>
-                               <form action="{{ route('places.destroy', $places->id)}}" method="post">
+                               <form action="{{ route('places.destroy', $place->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">Delete</button>
