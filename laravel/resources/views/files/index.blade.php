@@ -27,7 +27,7 @@
                                <td>{{ $file->filesize }}</td>
                                <td>{{ $file->created_at }}</td>
                                <td>{{ $file->updated_at }}</td>
-                               <td><a href="{{ route('files.edit',$file->id) }}">Editar</a></td>
+                               <td><a class="btn btn-primary" href="{{ route('files.edit',$file->id) }}">Editar</a></td>
                                <td>
                                <form action="{{ route('files.destroy', $file->id)}}" method="post">
                                     @csrf

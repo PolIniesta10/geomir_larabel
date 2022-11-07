@@ -15,6 +15,7 @@
                                <td scope="col">Latitude</td>
                                <td scope="col">Longitude</td>
                                <td scope="col">Created</td>
+                               <td scope="col">Updated</td>
                                <td scope="col">Edit</td>
                                <td scope="col">Delete</td>
                            </tr>
@@ -28,7 +29,7 @@
                                <td>{{ $post->latitude }}</td>
                                <td>{{ $post->created_at }}</td>
                                <td>{{ $post->updated_at }}</td>
-                               <td><a href="{{ route('posts.edit',$post->id) }}">Editar</a></td>
+                               <td><a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Editar</a></td>
                                <td>
                                <form action="{{ route('posts.destroy', $post->id)}}" method="post">
                                     @csrf
