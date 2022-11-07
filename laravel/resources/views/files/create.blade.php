@@ -1,3 +1,6 @@
+@extends('layouts.app')
+ 
+@section('content')
 <form method="post" action="{{ route('files.store') }}" enctype="multipart/form-data">
    @csrf
    <div class="form-group">
@@ -7,3 +10,4 @@
    <button type="submit" class="btn btn-primary">Create</button>
    <button type="reset" class="btn btn-secondary">Reset</button>
 </form>
+@endsection

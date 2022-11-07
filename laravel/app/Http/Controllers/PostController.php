@@ -100,7 +100,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $file=File::find($post->file_id);
-        return view("posts.show", ["post"  => $post]);
+        return view("posts.show", ["post"  => $post], ["file" => $file]);
     }
 
     /**
@@ -111,7 +111,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post')); 
+        $file=File::find($post->file_id);
+        return view('posts.edit', compact('post'), ["file" => $file]); 
     }
 
     /**
@@ -153,8 +154,8 @@ class PostController extends Controller
             \Log::debug("File saved at {$fullPath}");
             // Desar dades a BD
 
-            $post->file()->filepath = $filePath;
-            $post->file()->filesize = $fileSize;
+            $post->file->filepath = $filePath;
+            $post->file->filesize = $fileSize;
             $post->latitude = $latitude;
             $post->longitude = $longitude;
             $post->body = $body;
