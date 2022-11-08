@@ -2,3 +2,4 @@ composer
 composer.phar
 composer.lock
 /vendor
+mysql-client-key.pem

@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -21,12 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-	    'role_id',
     ];
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }	
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,9 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function places(){
-        
-    return $this->hasMany(Place::class);
+    public function posts()
+    {
+       return $this->hasMany(Post::class);
     }
 
+    public function places()
+    {
+       return $this->hasMany(Place::class);
+    }    
 }

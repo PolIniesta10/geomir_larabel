@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PlaceController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -26,21 +25,15 @@ Route::get('/', function (Request $request) {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-require __DIR__.'/auth.php';
-
-Route::get('mail/test', [MailController::class, 'test']);
-
-Route::resource('files', FileController::class)->middleware(['auth', 'role:1,2']);
-
-Route::resource('posts', PostController::class)->middleware(['auth', 'role:1']);
-
-Route::resource('places', PlaceController::class);
-
 Auth::routes();
+require __DIR__.'/email-verify.php';
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('mail/test', [MailController::class, 'test']);
+
+Route::resource('files', FileController::class);
+
+Route::resource('posts', PostController::class);
+
+Route::resource('places', PlaceController::class);

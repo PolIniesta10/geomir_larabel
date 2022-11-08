@@ -1,40 +1,35 @@
-@extends('layouts.app')
+@extends('layouts.box-app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Places') }}</div>
-                <div class="card-body">
-                    <table class="table">
-                        <form method="post" action="{{ route('places.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                                <label for="upload">Name:</label>
-                                <input type="text" class="form-control" name="name"/>
-                                <br>
-                                <label for="upload">Description:</label>
-                                <br>
-                                <textarea name="description" rows="4" cols="98"></textarea>
-                                <br><br>
-                                <label for="upload">Latitude:</label>
-                                <input type="text" class="form-control" name="latitude"/>
-                                <br>
-                                <label for="upload">Longitude:</label>
-                                <input type="text" class="form-control" name="longitude"/>
-                                <br>
-                                <label for="upload">File:</label>
-                                <input type="file" class="form-control" name="upload"/>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Create</button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
-                        </form>
-                    </table>
-               </div>
-            </div>
+@section('box-title')
+    {{ __('Add place') }}
+@endsection
+
+@section('box-content')
+    <form method="post" action="{{ route('places.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="name">{{ _('Name') }}</label>
+            <input type="text" id="name" name="name" class="form-control" />
         </div>
-    </div>
-</div>
+        <div class="form-group">
+            <label for="description">{{ _('Description') }}</label>
+            <textarea id="description" name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="upload">{{ _('File') }}</label>
+            <input type="file" id="upload" name="upload" class="form-control" />
+        </div>
+        <div class="form-group">            
+                <label for="latitude">{{ _('Latitude') }}</label>
+                <input type="text" id="latitude" name="latitude" class="form-control"
+                    value="41.2310371"/>
+        </div>
+        <div class="form-group">            
+            <label for="longitude">{{ _('Longitude') }}</label>
+            <input type="text" id="longitude" name="longitude" class="form-control"
+                    value="1.7282036"/>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ _('Create') }}</button>
+        <button type="reset" class="btn btn-secondary">{{ _('Reset') }}</button>
+    </form>
 @endsection

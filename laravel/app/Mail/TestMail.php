@@ -13,7 +13,6 @@ class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public array $content;
     /**
      * Create a new message instance.
      *
@@ -21,7 +20,6 @@ class TestMail extends Mailable
      */
     public function __construct(array $content)
     {
-        $this->content = [];
         $this->content = $content;
     }
 
@@ -30,12 +28,6 @@ class TestMail extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function build()
-    {
-	return $this->markdown('mails.testmail')
-		->with('content', $this->content);
-    }
-
     public function envelope()
     {
         return new Envelope(
@@ -52,6 +44,9 @@ class TestMail extends Mailable
     {
         return new Content(
             markdown: 'mails.testmail',
+            with: [
+                'content' => $this->content,
+            ],
         );
     }
 

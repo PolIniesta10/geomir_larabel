@@ -11,15 +11,17 @@ class Post extends Model
 
     protected $fillable = [
         'body',
+        'file_id',
         'latitude',
         'longitude',
-        'file_id',
-        'author_id',
+        'author_id'
     ];
+
     public function file()
     {
-        return $this->belongsTo(File::class);
+       return $this->belongsTo(File::class);
     }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'author_id');
