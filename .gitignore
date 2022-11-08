@@ -1,4 +1,4 @@
 composer
 composer.phar
 composer.lock
-vendor
+/vendor
