@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('visibility_id')
                   ->nullable();
             $table->foreign('visibility_id')
-                  ->references('id')->on('posts')
+                  ->references('id')->on('visibilities')
                   ->onUpdate('cascade')
                   ->onDelete('set null');
         });
