@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+
 use App\Models\Role;
 
 return new class extends Migration
@@ -14,6 +14,21 @@ return new class extends Migration
      * @return void
      */
     public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['role_id']);
+            $table->dropColumn('role_id');
+        });
+        Schema::dropIfExists('roles');
+        
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
     {
         // Create roles table
         Schema::create('roles', function (Blueprint $table) {
@@ -45,20 +60,5 @@ return new class extends Migration
              SET role_id = " . Role::AUTHOR . "
              WHERE role_id IS NULL",
         );
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['role_id']);
-            $table->dropColumn('role_id');
-        });
-
-        Schema::dropIfExists('roles');
     }
 };
