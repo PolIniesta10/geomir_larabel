@@ -26,6 +26,7 @@ class PostsCrudController extends CrudController
      */
     public function setup()
     {
+ 
         CRUD::setModel(\App\Models\Posts::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/posts');
         CRUD::setEntityNameStrings('posts', 'posts');
