@@ -31,6 +31,11 @@ class PostsCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/posts');
         CRUD::setEntityNameStrings('posts', 'posts');
         $this->crud->denyAccess(['create', 'delete', 'update']);
+
+        if (!backpack_user()->hasRole('editor', 'web')) {
+            CRUD::denyAccess(['list','create','read','update','delete']);
+        }
+ 
     }
 
     /**
