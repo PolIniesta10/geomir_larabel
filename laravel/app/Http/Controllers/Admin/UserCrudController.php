@@ -20,6 +20,11 @@ class UserCrudController extends PM_UserCrudController
     public function setup()
     {
         parent::setup();
+
+        if (!backpack_user()->hasRole('admin', 'web')) {
+            CRUD::denyAccess(['list','create','read','update','delete']);
+        }
+ 
     }
 
     /**
