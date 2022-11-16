@@ -3,7 +3,7 @@
 @section('content')
 <div class="master">
     <div class="cajaloginresgister">
-        <div class="cajaizq"><h1>{{ __('Login') }}</h1>   
+        <div class="cajaizq"><h1>{{ __('Login') }}</h1>
         </div>
         <div class="cajader">
             <div class="loginregis">
