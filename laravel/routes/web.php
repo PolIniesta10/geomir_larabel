@@ -33,10 +33,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('mail/test', [MailController::class, 'test']);
 
 Route::resource('files', FileController::class)
-    ->middleware(['auth', 'permission:files']);
+    ->middleware(['auth', 'permission:files.*']);
 
 Route::resource('posts', PostController::class)
-    ->middleware(['auth', 'permission:posts']);
+    ->middleware(['auth', 'permission:posts.*']);
 
 Route::resource('places', PlaceController::class)
     ->middleware(['auth', 'permission:places']);

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="master">
-    <div class="cajaloginresgister">
+    <div class="cajaloginregister">
         <div class="cajaizq"><h1>{{ __('Register') }}</h1> 
         </div>
         <div class="cajader">
@@ -10,7 +10,9 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="camposform">
-                        <h2>Registrate</h2>
+                        <div class="confirmemailpass">
+                            <h2>Registrate con una cuenta</h2>
+                        </div>
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
@@ -23,7 +25,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="camposform">
                         <div class="confirmemailpass">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -35,7 +36,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="camposform">
                         <div class="confirmemailpass">
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -47,13 +47,11 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="camposform">
                         <div class="confirmemailpass">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
                     </div>
-
                     <div class="confirmarform">
                         <div class="enviarform">
                             <button type="submit" class="btn btn-primary">

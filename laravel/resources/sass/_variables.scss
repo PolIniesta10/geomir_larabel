@@ -6,7 +6,25 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-
+.py-4 {
+    height: 611px;
+    position: relative;
+    margin: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.py-4::before {
+    background-image: url("https://www.blogdelfotografo.com/wp-content/uploads/2014/08/61.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    content: "";
+}
 .master {
     width: 100%;
     margin-top: 100px;
@@ -15,7 +33,7 @@ $line-height-base: 1.6;
     align-items: center;
 }
 
-.cajaloginresgister {
+.cajaloginregister {
     display: flex;
     width: 70%;  
     height: 400px;  
@@ -24,7 +42,7 @@ $line-height-base: 1.6;
     border-radius: 25px;
 }
 .cajaizq {
-    width: 30%;
+    width: 40%;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -35,7 +53,7 @@ $line-height-base: 1.6;
 }
 
 .cajader {
-    width: 70%;
+    width: 60%;
     background-color: rgb(194, 12, 12);
     display: flex;
     justify-content: center;
@@ -43,8 +61,14 @@ $line-height-base: 1.6;
     border: 2px;
     border-radius: 0px 25px 25px 0px;
 }
+.cajaizq img {
+    width: 80%;
+    border-radius: 35px;
+}
 .loginregis {
     width: 60%;
+    height: 60%;
+    background-color: blue;
 }
 .remember {
     width: 40%;
@@ -52,26 +76,26 @@ $line-height-base: 1.6;
 .enviarform {
     width: 60%;
 }
-.emailaddress {
-    width: 20%;
-    margin-right: 30px;
-    height: 50px;
-}
 .confirmemailpass {
     width: 100%;
-    height: 50px;
+    height: 30px;
 }
 .camposform {
     display: flex;
+    padding: 5px;
 }
 .confirmarform {
-    margin-top: 20px;
     display: flex;
 }
 #email {
-    height: 50px;
+    height: 30px;
 }
 #password {
-    height: 50px;
-    margin-top: 10px;
+    height: 30px;
+}
+#password-confirm {
+    height: 30px;
+}
+br {
+    height: 2px;
 }

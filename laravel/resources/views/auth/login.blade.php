@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="master">
-    <div class="cajaloginresgister">
-        <div class="cajaizq"><h1>{{ __('Login') }}</h1>   
+    <div class="cajaloginregister">
+        <div class="cajaizq"><img class="img-fluid" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" title="Logo"/>   
         </div>
         <div class="cajader">
             <div class="loginregis">
