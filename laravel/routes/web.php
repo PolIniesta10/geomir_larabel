@@ -32,6 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('mail/test', [MailController::class, 'test']);
 
+Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);
+
 Route::resource('files', FileController::class)
     ->middleware(['auth', 'permission:files']);
 

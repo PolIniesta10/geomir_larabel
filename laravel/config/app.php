@@ -82,7 +82,14 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ca',
+
+    'available_locales' => [
+        'ca' => 'Català',
+        'es' => 'Castellano',
+        'en' => 'English',
+    ],
+ 
 
     /*
     |--------------------------------------------------------------------------

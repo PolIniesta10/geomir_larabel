@@ -5,3 +5,112 @@ $body-bg: #f8fafc;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+.container-home{
+    display: flex;
+    width: 100%;
+    margin-left: 20px;margin-right: 20px;
+    align-items: center
+}
+
+.container-home .title-home{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.my-navbar-brand{
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 3rem;
+
+    &:hover,
+    &:focus {
+        color: var(--bs-navbar-brand-hover-color);
+        text-decoration: if(--bs-link-hover-decoration == underline, none, null);
+    }
+}
+.my-card{
+    
+}
+.my-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-card-cap-padding-x);
+    margin-bottom: 0;
+    color: var(--bs-card-cap-color);
+    background-color: var(--bs-card-cap-bg);
+    border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+.my-card-header .sub-card-header div h5,.my-card-header .sub-card-header div p, .my-card-header .tiempo-header p{
+    margin-bottom: 0;
+}
+.my-card-header img{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.sub-card-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.tiempo-header{
+    position: absolute;
+    right: 30px;
+}
+.home-container {
+    background-color: transparent;
+}
+
+.home-container .home-topics{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.home-container .home-topics img{
+    width: 100%;
+    height: 100%;
+}
+.text-topics{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+    margin-bottom: 0;
+    color: var(--bs-card-cap-color);
+    background-color: var(--bs-card-cap-bg);
+    border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+.text-topics div button{
+    border: none;
+    background-color: transparent;
+}
+
+.text-topics div  button i{
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+}
+.text-topics div  button i:hover{
+    color: black;
+}
+.text-topics a{
+    margin: 0%;
+    color: rgb(127, 127, 127);
+}
+.text-topics a:hover {
+    color: rgb(74, 74, 74);
+}
+.text-topics a:visited {
+    color: rgb(127, 127, 127);
+}

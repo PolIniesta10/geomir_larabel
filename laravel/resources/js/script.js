@@ -1,0 +1,1 @@
+changeIcon = (icon) => icon.classList.toggle('fa-sharp fa-solid fa-heart')
