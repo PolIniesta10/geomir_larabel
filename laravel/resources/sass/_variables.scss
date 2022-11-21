@@ -74,7 +74,7 @@ body{
     background-clip: border-box;
     border: var(--bs-card-border-width) solid var(--bs-card-border-color);
     border-radius: var(--bs-card-border-radius);
-    margin-bottom: 20px;
+    margin-top: 20px;
     box-shadow: 0px 0px 5px 6px rgba(169, 169, 169, 0.3);
 }
 .my-card-header {
@@ -183,17 +183,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 102px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        background-image: url("https://static.vecteezy.com/system/resources/previews/001/308/318/non_2x/moonlight-reflecting-on-lake-landscape-vector.jpg");
-        background-size: cover;
-        background-position: top center;
-    }
 }
 .master {
     width: 100%;
@@ -237,7 +226,7 @@ body{
     border-radius: 25px 0px 0px 25px;
 }
 .loginregis {
-    width: 60%;
+    width: 50%;
     height: 60%;
 }
 .remember {
@@ -266,7 +255,7 @@ body{
     display: block;
     padding: .5rem;
     transition: 250ms background ease-in;
-    width: calc(100% - 3rem);
+    width: 100%;
     &:focus {
         background: black;
         color: white;

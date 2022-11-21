@@ -3,7 +3,7 @@
 @section('content')
 <div class="master">
     <div class="cajaloginregister">
-        <div class="cajaizq"><h1>{{ __('Register') }}</h1> 
+        <div class="cajaizq">
         </div>
         <div class="cajader">
             <div class="loginregis">
@@ -11,12 +11,12 @@
                     @csrf
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <h2>Registrate con una cuenta</h2>
+                            <h2>Registrate</h2>
                         </div>
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nombre" required autocomplete="name" autofocus>
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Correo electrónico" required autocomplete="email">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" required autocomplete="new-password">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetir contraseña" required autocomplete="new-password">
                         </div>
                     </div>
                     <div class="confirmarform">
