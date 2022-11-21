@@ -113,6 +113,7 @@ $line-height-base: 1.6;
 }
 .text-topics a:visited {
     color: rgb(127, 127, 127);
+}
 .py-4 {
     height: 611px;
     position: relative;
@@ -121,9 +122,6 @@ $line-height-base: 1.6;
     padding-bottom: 0 !important;
 }
 .py-4::before {
-    background-image: url("https://www.blogdelfotografo.com/wp-content/uploads/2014/08/61.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     position: absolute;
     width: 100%;
     height: 100%;
