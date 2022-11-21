@@ -17,7 +17,7 @@
                </div>
             </div> -->
             
-            <div class="card">
+            <div class="my-card">
                 <div class="my-card-header">
                     <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
                     <div class="sub-card-header">
@@ -62,9 +62,9 @@
                 <div class="text-topics">
                     <a href="#">Ver todos los comentarios</a>
                 </div>
-           </div>
+            </div>
 
-           <div class="card">
+            <div class="my-card">
                 <div class="my-card-header">
                     <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
                     <div class="sub-card-header">
@@ -85,7 +85,7 @@
                 <div class="home-container">
                     <div class="home-topics">
                         
-                        <img src="https://www.willysplan.com/wp-content/uploads/2020/11/mirador-de-la-figuerassa.jpg" alt="Mirador Chulisimo">
+                        <img src="https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg" alt="Mirador Chulisimo">
                         
                         
                     </div>
@@ -109,8 +109,54 @@
                 <div class="text-topics">
                     <a href="#">Ver todos los comentarios</a>
                 </div>
+            </div>
 
-           </div>
+            <div class="my-card">
+                <div class="my-card-header">
+                    <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
+                    <div class="sub-card-header">
+                        <div>
+                            <h5>Usuario</h5>
+                        </div>
+                        <div>
+                            <p>Ubicación</p>
+                        </div>
+                    </div>
+                    <div class="tiempo-header">
+
+                        <p>15h</p>
+
+                    </div>
+                </div>
+
+                <div class="home-container">
+                    <div class="home-topics">
+                        
+                        <img src="https://cdn.shopify.com/s/files/1/0229/0839/files/bancos_de_imagenes_gratis.jpg?v=1630420628" alt="Mirador Chulisimo">
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="text-topics">
+                    <div>
+                        <button><i class="fa-regular fa-heart" onclick="changeIcon(this)"></i></button>
+                    </div>
+                    <div>
+                        <button><i class="fa-regular fa-comment"></i></button>
+                    </div>
+                    <div>
+                        <button><i class="fa-regular fa-floppy-disk"></i></button>
+                    </div>
+                    <div>
+                        <button><i class="fa-regular fa-share-from-square"></i></button>
+                    </div>
+                </div>
+
+                <div class="text-topics">
+                    <a href="#">Ver todos los comentarios</a>
+                </div>
+            </div>
 
        </div>
    </div>
