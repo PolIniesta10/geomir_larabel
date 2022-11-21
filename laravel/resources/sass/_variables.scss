@@ -6,6 +6,16 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+body{
+    background-image: url("https://www.todofondos.net/wp-content/uploads/1600x900-Fondo-de-Pantalla-Negro-1024x576.jpg"); 
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.bg-color {
+    --bs-bg-opacity: 1;
+    background-color: #eaece9;
+}
 .container-home{
     display: flex;
     width: 100%;
@@ -34,7 +44,35 @@ $line-height-base: 1.6;
     }
 }
 .my-card{
-    
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: 0.375rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: #eaece9;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px 6px rgba(169, 169, 169, 0.3);
 }
 .my-card-header {
     display: flex;
@@ -113,6 +151,7 @@ $line-height-base: 1.6;
 }
 .text-topics a:visited {
     color: rgb(127, 127, 127);
+}
 .py-4 {
     height: 611px;
     position: relative;
@@ -121,8 +160,8 @@ $line-height-base: 1.6;
     padding-bottom: 0 !important;
 }
 .py-4::before {
-    background-image: url("https://www.blogdelfotografo.com/wp-content/uploads/2014/08/61.jpg");
-    background-repeat: no-repeat;
+    // background-image: url("https://static.vecteezy.com/system/resources/previews/005/883/991/non_2x/minimalist-geometric-seamless-pattern-geometric-abstract-seamless-pattern-vector.jpg"); 
+    background-repeat: repeat;
     background-size: cover;
     position: absolute;
     width: 100%;
