@@ -83,7 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="fondohome">
             @include('flash')
             @yield('content')
         </main>

@@ -3,18 +3,18 @@
 @section('content')
 <div class="master">
     <div class="cajaloginregister">
-        <div class="cajaizq"><img class="img-fluid" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" title="Logo"/>   
+        <div class="cajaizq">
         </div>
         <div class="cajader">
             <div class="loginregis">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="camposform">
-                        <h2>Ingresar a tu cuenta</h2>
+                        <h2>Login</h2>
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Correo electrónico" required autocomplete="email" autofocus>
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
 
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="email" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="Contraseña" required autocomplete="current-password">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -37,26 +37,23 @@
                     </div>
 
                     <div class="confirmarform">
-                        <div class="remember">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
-                        </div>
                         <div class="enviarform">
-                            <button type="submit" class="btn btn-primary">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                            <label class="form-check-label" for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
+                            <button type="submit" class="btn btn-dark">
                                 {{ __('Login') }}
                             </button>
-
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
                         </div>
+                    </div>
+                    <div class="forgotpass">
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
                     </div>
                 </form>
             </div>

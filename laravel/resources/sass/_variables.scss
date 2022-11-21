@@ -33,6 +33,9 @@ $line-height-base: 1.6;
         text-decoration: if(--bs-link-hover-decoration == underline, none, null);
     }
 }
+.card {
+    margin-bottom: 15px;
+}
 .my-card{
     
 }
@@ -113,55 +116,54 @@ $line-height-base: 1.6;
 }
 .text-topics a:visited {
     color: rgb(127, 127, 127);
-.py-4 {
-    height: 611px;
-    position: relative;
+}
+.fondohome {
     margin: 0;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-.py-4::before {
-    background-image: url("https://www.blogdelfotografo.com/wp-content/uploads/2014/08/61.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: block;
-    content: "";
-}
-.master {
-    width: 100%;
-    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 102px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-image: url("https://static.vecteezy.com/system/resources/previews/001/308/318/non_2x/moonlight-reflecting-on-lake-landscape-vector.jpg");
+        background-size: cover;
+        background-position: top center;
+    }
+}
+.master {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 9%;
 }
 
 .cajaloginregister {
     display: flex;
     width: 70%;  
-    height: 400px;  
+    height: 550px;  
     margin: auto;
-    box-shadow: 0px 2px 15px 0px black;
+    box-shadow: 0px 4px 15px 8px black;
     border-radius: 25px;
 }
 .cajaizq {
     width: 40%;
-    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: white;
     border: 2px;
     border-radius: 25px 0px 0px 25px;
+    background-image: url("https://i.pinimg.com/originals/b7/11/17/b711173dc3a70bffebc64bd5e6969d26.jpg");
+    background-size: 100% 100%;
 }
-
 .cajader {
     width: 60%;
-    background-color: rgb(194, 12, 12);
+    background-color: #EAECE9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,40 +171,75 @@ $line-height-base: 1.6;
     border-radius: 0px 25px 25px 0px;
 }
 .cajaizq img {
-    width: 80%;
-    border-radius: 35px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 0px 0px 25px;
 }
 .loginregis {
     width: 60%;
     height: 60%;
-    background-color: blue;
 }
 .remember {
     width: 40%;
 }
 .enviarform {
-    width: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.enviarform button {
+    margin-left: 10px;
+}
+.enviarform label {
+    margin-left: 5px;
 }
 .confirmemailpass {
     width: 100%;
     height: 30px;
 }
+.confirmemailpass input {
+    background: transparent;
+    border: 0 solid;
+    border-bottom: 1px solid rgba(black, .5);
+    color: black;
+    display: block;
+    padding: .5rem;
+    transition: 250ms background ease-in;
+    width: calc(100% - 3rem);
+    &:focus {
+        background: black;
+        color: white;
+        transition: 250ms background ease-in;
+  }
+}
+.confirmemailpass input::placeholder {
+    color: grey;
+}
 .camposform {
     display: flex;
-    padding: 5px;
+    padding: 15px;
 }
 .confirmarform {
+    padding: 15px;
+}
+.forgotpass {
+    padding: 15px;
     display: flex;
+    justify-content: center;
+}
+.forgotpass a {
+    color: #363636;
+}
+.forgotpass a:hover {
+    color: #1149e0;
+}
+.forgotpass a:visited {
+    color: #363636;
 }
 #email {
-    height: 30px;
-}
-#password {
-    height: 30px;
+    height: 40px;
+    width: 100%;
 }
 #password-confirm {
     height: 30px;
-}
-br {
-    height: 2px;
 }

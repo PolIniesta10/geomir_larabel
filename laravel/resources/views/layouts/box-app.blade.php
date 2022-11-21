@@ -64,7 +64,7 @@
                 </div>
            </div>
 
-           <div class="card">
+            <div class="card">
                 <div class="my-card-header">
                     <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
                     <div class="sub-card-header">
@@ -109,9 +109,7 @@
                 <div class="text-topics">
                     <a href="#">Ver todos los comentarios</a>
                 </div>
-
-           </div>
-
+            </div>
        </div>
    </div>
 </div>
