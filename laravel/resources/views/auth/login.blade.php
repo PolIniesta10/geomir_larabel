@@ -14,7 +14,7 @@
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Correo electrónico" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Correo electrónico" required autocomplete="email">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -38,14 +38,18 @@
 
                     <div class="confirmarform">
                         <div class="enviarform">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <div>
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
-                            <button type="submit" class="btn btn-dark">
-                                {{ __('Login') }}
-                            </button>
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-dark">
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="forgotpass">
