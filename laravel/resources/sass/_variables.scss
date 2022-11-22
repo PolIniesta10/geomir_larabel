@@ -206,10 +206,15 @@ body{
     color: white;
     display: flex;
     justify-content: center;
+    align-content: center;
     border: 2px;
     border-radius: 25px 0px 0px 25px;
     background-image: url("https://i.pinimg.com/originals/b7/11/17/b711173dc3a70bffebc64bd5e6969d26.jpg");
     background-size: 100% 100%;
+    // background-image: url("/home/poingo/geomir_larabel/laravel/resources/views/auth/photo/undraw_Personal_email_re_4lx7-removebg-preview.png");
+    // background-color: #eaece9;
+    // background-repeat: no-repeat;
+    // background-size: 115% 95%;
 }
 .cajader {
     width: 60%;
@@ -235,13 +240,22 @@ body{
 .enviarform {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 .enviarform button {
     margin-left: 10px;
 }
 .enviarform label {
     margin-left: 5px;
+}
+.enviarformreg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.enviarformreg button{
+    width: 100%;
 }
 .confirmemailpass {
     width: 100%;
@@ -257,7 +271,7 @@ body{
     transition: 250ms background ease-in;
     width: 100%;
     &:focus {
-        background: black;
+        background: rgb(55, 55, 55);
         color: white;
         transition: 250ms background ease-in;
   }
@@ -289,7 +303,4 @@ body{
 #email {
     height: 40px;
     width: 100%;
-}
-#password-confirm {
-    height: 30px;
 }

@@ -16,7 +16,7 @@
                     </div>
                     <div class="camposform">
                         <div class="confirmemailpass">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nombre" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nombre" required autocomplete="name">
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -50,10 +50,11 @@
                     <div class="camposform">
                         <div class="confirmemailpass">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetir contraseña" required autocomplete="new-password">
+                            <span></span>                        
                         </div>
                     </div>
                     <div class="confirmarform">
-                        <div class="enviarform">
+                        <div class="enviarformreg">
                             <button type="submit" class="btn btn-dark">
                                 {{ __('Register') }}
                             </button>
