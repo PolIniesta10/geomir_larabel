@@ -1,6 +1,6 @@
 @extends('layouts.box-app')
 
-@section('box-title')
+<!-- @section('box-title')
     {{ __('Places') }}
 @endsection
 
@@ -42,4 +42,4 @@
         </table>
     </div>
     <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">➕ {{ _('Add new place') }}</a>
-@endsection
+@endsection -->

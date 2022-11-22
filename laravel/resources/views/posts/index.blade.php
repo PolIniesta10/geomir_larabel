@@ -1,6 +1,6 @@
 @extends('layouts.box-app')
-
-@section('box-title')
+@section('content')
+<!-- @section('box-title')
     {{ __('Files') }}
 @endsection
 
@@ -40,4 +40,20 @@
         </table>
     </div>
     <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">➕ {{ _('Add new post') }}</a>
+@endsection -->
+<div class="masterpost">
+    <div class="post">
+        <img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts">
+    </div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+
+</div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.box-app')
 @vite(['resources/js/script.js'])
 <!-- @section('box-title')
     {{ __('Dashboard') }}
@@ -169,8 +169,6 @@
     </div>
 </div>
 @endsection
-
-
 
 
 
