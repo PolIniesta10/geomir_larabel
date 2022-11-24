@@ -522,3 +522,20 @@ body{
 .navigation ul li:nth-child(5).active ~ .indicator::before{
     background: #1149e0;
 }
+
+
+.edit{
+    background-color: #363636;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.edit i{
+    color: #EAECE9;
+    z-index: 1;
+}
+
+.post:hover .edit{
+
+    opacity: 1;
+}

@@ -29,7 +29,8 @@
                 <div class="title-home">
 
                     <a class="my-navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name') }}
+                        <!-- {{ config('app.name') }} -->
+                        <img src="/img/LookTracer1.png">
                     </a>
 
                 </div>
