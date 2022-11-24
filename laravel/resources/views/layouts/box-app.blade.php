@@ -16,10 +16,6 @@
                 <div class="card-body">
                     @yield('box-content')
                 </div>
-                
-                
-
-                
             </div>
         </div>
     </div>
@@ -27,62 +23,62 @@
 
 @endsection
 <div class="navigation">
-        <ul>
-            <li class="list active">
-                <a href="/home">
-                    <span class="icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="title">Home</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <span class="title">Buscar</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
-                    <span class="title">Publicar</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><i class="fa-solid fa-bell"></i></span>
-                    <span class="title">Notificaciones</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><i class="fa-solid fa-user"></i></span>
-                    <span class="title">Perfil</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="/posts">
-                    <span class="icon"><i class="fa-solid fa-eye"></i></span>
-                    <span class="title">Posts</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="/places">
-                    <span class="icon"><i class="fa-solid fa-eye"></i></span>
-                    <span class="title">Places</span>
-                </a>
-            </li>
-            <div class="indicator"></div>
-        </ul>
-    </div>
-    <script>
-        let list = document.querySelectorAll('li');
-        for (let i=0; i<list.lenght; i++){
-            list[i].onmouseover = function(){
-                let j = 0;
-                while (j < list.lenght){
-                    list[j++].className = 'list';
-                }
-                list[i].className = 'list active'
+    <ul>
+        <li class="list active">
+            <a href="/home">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="title">Buscar</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
+                <span class="title">Publicar</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-bell"></i></span>
+                <span class="title">Notificaciones</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="title">Perfil</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="/posts">
+                <span class="icon"><i class="fa-solid fa-eye"></i></span>
+                <span class="title">Posts</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="/places">
+                <span class="icon"><i class="fa-solid fa-eye"></i></span>
+                <span class="title">Places</span>
+            </a>
+        </li>
+        <div class="indicator"></div>
+    </ul>
+</div>
+<script>
+    let list = document.querySelectorAll('li');
+    for (let i=0; i<list.lenght; i++){
+        list[i].onmouseover = function(){
+            let j = 0;
+            while (j < list.lenght){
+                list[j++].className = 'list';
             }
+            list[i].className = 'list active'
         }
+    }
 
-    </script>
+</script>

@@ -56,6 +56,5 @@
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
 </div>
 @endsection
