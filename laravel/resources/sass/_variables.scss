@@ -369,21 +369,16 @@ body{
 .post {
     font-size: 30px;
     text-align: center;
-    border: 2px solid #eaece9;
 }
 .post img {
     width: 100%;
     height: 100%;
 }
-// .masterpost .post i{
-//     display;
-// }
 
 // #######################################################
 //                     SIDEBAR MENU
 // #######################################################
 .navigation{
-    background-color: red;
     position: fixed;
     margin-top: 3%;
     width: 70px;
@@ -394,7 +389,7 @@ body{
     margin-left: 1%;
 }
 .navigation ul{
-
+    background-color: white;
     position: absolute;
     top: 0;
     left: 0;
@@ -402,6 +397,7 @@ body{
     height: auto;
     display: flex;
     flex-direction: column;
+    border-radius: 35px;
     
 }
 .navigation ul li{
