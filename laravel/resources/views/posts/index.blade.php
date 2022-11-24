@@ -41,6 +41,9 @@
     </div>
     <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">➕ {{ _('Add new post') }}</a>
 @endsection -->
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <div class="masterpost">
     <div class="post">
         <img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts">
@@ -54,6 +57,5 @@
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
     <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-
 </div>
 @endsection

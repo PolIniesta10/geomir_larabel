@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-color shadow-sm">
+        <nav class="navbar2 navbar-expand-md navbar-light bg-color shadow-sm">
             <div class="container-home">
                 <div class="lang-switcher">
                     
@@ -84,6 +84,54 @@
         </nav>
 
         <main class="fondohome">
+            <div class="navigation">
+                <ul>
+                    <li class="list active">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="title">Buscar</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
+                            <span class="title">Publicar</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-bell"></i></span>
+                            <span class="title">Notificaciones</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span>
+                            <span class="title">Perfil</span>
+                        </a>
+                    </li>
+                    <div class="indicator"></div>
+                </ul>
+            </div>
+            <script>
+                let list = document.querySelectorAll('li');
+                for (let i=0; i<list.lenght; i++){
+                    list[i].onmouseover = function(){
+                        let j = 0;
+                        while (j < list.lenght){
+                            list[j++].className = 'list';
+                        }
+                        list[i].className = 'list active'
+                    }
+                }
+
+            </script>
             @include('flash')
             @yield('content')
         </main>
