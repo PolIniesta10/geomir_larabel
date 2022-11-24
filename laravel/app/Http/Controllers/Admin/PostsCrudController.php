@@ -46,14 +46,14 @@ class PostsCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('author_id')->label(__('fields.author_id'));
-        CRUD::column('body')->label(__('fields.body'));
-        CRUD::column('created_at')->label(__('fields.created_at'));
-        CRUD::column('file_id')->label(__('fields.file_id'));
-        CRUD::column('latitude')->label(__('fields.latitude'));
-        CRUD::column('longitude')->label(__('fields.longitude'));
-        CRUD::column('updated_at')->label(__('fields.updated_at'));
-        CRUD::column('visibility_id')->label(__('fields.visibility_id'));
+        CRUD::column('author_id')->label(__('auth.author_id'));
+        CRUD::column('body')->label(__('auth.body'));
+        CRUD::column('created_at')->label(__('auth.created_at'));
+        CRUD::column('file_id')->label(__('auth.file_id'));
+        CRUD::column('latitude')->label(__('auth.latitude'));
+        CRUD::column('longitude')->label(__('auth.longitude'));
+        CRUD::column('updated_at')->label(__('auth.updated_at'));
+        CRUD::column('visibility_id')->label(__('auth.visibility_id'));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

@@ -47,14 +47,14 @@ class PlacesCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('author_id');
-        CRUD::column('created_at');
-        CRUD::column('description');
-        CRUD::column('file_id');
-        CRUD::column('latitude');
-        CRUD::column('longitude');
-        CRUD::column('name');
-        CRUD::column('updated_at');
+        CRUD::column('author_id')->label(__('auth.author_id'));
+        CRUD::column('created_at')->label(__('auth.created_at'));
+        CRUD::column('description')->label(__('auth.description'));
+        CRUD::column('file_id')->label(__('auth.file_id'));
+        CRUD::column('latitude')->label(__('auth.latitude'));
+        CRUD::column('longitude')->label(__('auth.longitude'));
+        CRUD::column('name')->label(__('auth.name'));
+        CRUD::column('updated_at')->label(__('auth.updated_at'));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
