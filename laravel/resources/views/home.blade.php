@@ -164,10 +164,33 @@
                     <a href="#">Ver todos los comentarios</a>
                 </div>
             </div>  
+            
 
         </div>
     </div>
 </div>
+<footer>
+<div class="cajafootermaster">
+    <div class="cajasfooter1">
+        <div class="cajaizqfooter">
+            <p>Privacy Polcy</p>
+            <p>Cookies Polcy</p>
+            <p>Quality Polcy</p>
+        </div>
+    </div>
+    <div class="cajasfooter2">
+        <div class="cajamediofooter"><h1>GRACIAS!</h1><hr></div>
+        <div class="cajamediofooter2">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="cajasfooter1">HOLA</div>
+</div>
+</footer>
 @endsection
 
 

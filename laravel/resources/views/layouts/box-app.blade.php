@@ -60,6 +60,12 @@
                 <span class="title">Posts</span>
             </a>
         </li>
+        <li class="list">
+            <a href="/places">
+                <span class="icon"><i class="fa-solid fa-eye"></i></span>
+                <span class="title">Places</span>
+            </a>
+        </li>
         
         <div class="indicator"></div>
     </ul>

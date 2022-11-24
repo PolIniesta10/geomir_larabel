@@ -387,6 +387,7 @@ body{
     border-radius: 35px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
     margin-left: 1%;
+    z-index: 1;
 }
 .navigation ul{
     background-color: white;
@@ -400,7 +401,7 @@ body{
     border-radius: 35px;
     
 }
-.navigation ul li{
+.navigation ul .list{
 
     position: relative;
     list-style: none;
@@ -412,7 +413,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.navigation ul li a{
+.navigation ul .list a{
 
     position: relative;
     display: flex;
@@ -423,22 +424,22 @@ body{
     color: #333;
     font-weight: 500;
 }
-.navigation ul li a .icon{
+.navigation ul .list a .icon{
 
     position: relative;
     display: block;
     text-align: center;
     line-height: 75px;
 }
-.navigation ul li.active a .icon{
+.navigation ul .list.active a .icon{
 
     color: #eaece9;
 }
-.navigation ul li a .icon i{
+.navigation ul .list a .icon i{
 
     font-size: 24px;
 }
-.navigation ul li a .title{
+.navigation ul .list a .title{
 
     position: absolute;
     top: 50%;
@@ -452,13 +453,13 @@ body{
     opacity: 0;
     visibility: hidden;
 }
-.navigation ul li:hover a .title{
+.navigation ul .list:hover a .title{
 
     transform: translateX(-25px) translateY(-50%);
     opacity: 1;
     visibility: visible;
 }
-.navigation ul li a .title::before{
+.navigation ul .list a .title::before{
 
     content: '';
     position: absolute;
@@ -491,35 +492,35 @@ body{
     border-radius: 50%;
     transition: 0.5s;
 }
-.navigation ul li:nth-child(1).active ~ .indicator{
+.navigation ul .list:nth-child(1).active ~ .indicator{
     transform: translateY(calc(70px * 0));
 }
-.navigation ul li:nth-child(2).active ~ .indicator{
+.navigation ul .list:nth-child(2).active ~ .indicator{
     transform: translateY(calc(70px * 1));
 }
-.navigation ul li:nth-child(3).active ~ .indicator{
+.navigation ul .list:nth-child(3).active ~ .indicator{
     transform: translateY(calc(70px * 2));
 }
-.navigation ul li:nth-child(4).active ~ .indicator{
+.navigation ul .list:nth-child(4).active ~ .indicator{
     transform: translateY(calc(70px * 3));
 }
-.navigation ul li:nth-child(5).active ~ .indicator{
+.navigation ul .list:nth-child(5).active ~ .indicator{
     transform: translateY(calc(70px *4));
 }
 
-.navigation ul li:nth-child(1).active ~ .indicator::before{
+.navigation ul .list:nth-child(1).active ~ .indicator::before{
     background: #1149e0;
 }
-.navigation ul li:nth-child(2).active ~ .indicator::before{
+.navigation ul .list:nth-child(2).active ~ .indicator::before{
     background: #1149e0;
 }
-.navigation ul li:nth-child(3).active ~ .indicator::before{
+.navigation ul .list:nth-child(3).active ~ .indicator::before{
     background: #1149e0;
 }
-.navigation ul li:nth-child(4).active ~ .indicator::before{
+.navigation ul .list:nth-child(4).active ~ .indicator::before{
     background: #1149e0;
 }
-.navigation ul li:nth-child(5).active ~ .indicator::before{
+.navigation ul .list:nth-child(5).active ~ .indicator::before{
     background: #1149e0;
 }
 
@@ -538,4 +539,45 @@ body{
 .post:hover .edit{
 
     opacity: 1;
+}
+footer {
+    background-color: #B7D1DA;
+    height: 10%;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 50px 50px 0px 0px;
+}
+.cajafootermaster {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    height: 100%;
+}
+.cajasfooter1 {
+    
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 80%;
+}
+.cajaizqfooter p {
+    margin: 0;
+}
+.cajasfooter2 {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+.cajamediofooter hr {
+    color: black;
+    margin-bottom: 5px;
+}
+.cajamediofooter2 {
+    display: flex;
 }
