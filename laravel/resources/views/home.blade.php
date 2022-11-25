@@ -179,16 +179,27 @@
         </div>
     </div>
     <div class="cajasfooter2">
-        <div class="cajamediofooter"><h1>GRACIAS!</h1><hr></div>
-        <div class="cajamediofooter2">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
+        <div class="cajamediofootermensaje"><h1>GRACIAS!</h1></div>
+        <div class="cajamediofooterredes">
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            
+            <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            
+            <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            
+            <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+
         </div>
     </div>
-    <div class="cajasfooter1">HOLA</div>
+    <div class="cajasfooter1">
+        <div class="cajaizqfooter">
+            <p>LookTracer</p>
+            <p>Blog</p>
+            <p>Contact</p>
+        </div>
+    </div>
 </div>
 </footer>
 @endsection

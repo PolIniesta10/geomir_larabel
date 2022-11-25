@@ -29,5 +29,6 @@
         </div>
         <button type="submit" class="btn btn-primary">{{ _('Update') }}</button>
         <button type="reset" class="btn btn-secondary">{{ _('Reset') }}</button>
+        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ _('Back to list') }}</a>
     </form>
 @endsection

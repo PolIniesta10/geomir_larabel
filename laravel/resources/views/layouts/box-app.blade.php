@@ -37,7 +37,7 @@
             </a>
         </li>
         <li class="list">
-            <a href="#">
+            <a href="#popup">
                 <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
                 <span class="title">Publicar</span>
             </a>
@@ -69,4 +69,20 @@
         
         <div class="indicator"></div>
     </ul>
+    <div id="popup" class="overlay">
+        <div id="popupBody">
+            <div class="popuptitulo">
+                <h2>Que quieres publicar?</h2>
+                <a id="cerrar" href="/home">&times;</a>
+            </div>
+            
+            
+            <div class="popupContent">
+                <div class="botoncrear">            
+                    <a href="/posts/create"><input type="button" value="Post"></a>
+                    <a href="/places/create"><input type="button" value="Place"></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

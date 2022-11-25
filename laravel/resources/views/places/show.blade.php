@@ -44,12 +44,6 @@
 
     <!-- Buttons -->
     <div class="container" style="margin-bottom:20px">
-        <a class="btn btn-warning" href="{{ route('places.edit', $place) }}" role="button">📝 {{ _('Edit') }}</a>
-        <form id="form" method="POST" action="{{ route('places.destroy', $place) }}" style="display: inline-block;">
-            @csrf
-            @method("DELETE")
-            <button id="destroy" type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">🗑️ {{ _('Delete') }}</button>
-        </form>
         <a class="btn" href="{{ route('places.index') }}" role="button">⬅️ {{ _('Back to list') }}</a>
     </div>
 

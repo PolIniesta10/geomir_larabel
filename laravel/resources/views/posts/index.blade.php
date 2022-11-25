@@ -47,17 +47,67 @@
 <div class="masterpost">
     <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');"> 
         <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i> </a>
-            
-        </div>  
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+       
     </div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
-    <div class="post"><img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg" alt="posts"></div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+        <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
+        <div class="edit">
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
 </div>
 @endsection

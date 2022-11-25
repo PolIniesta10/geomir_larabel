@@ -47,15 +47,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <div class="masterpost">
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
-    <div class="post"><img src="https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg" alt="posts"></div>
+<div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');"> 
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+       
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+        <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
+    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
+        <div class="edit">
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+        </div>
+    </div>
 </div>
 @endsection
