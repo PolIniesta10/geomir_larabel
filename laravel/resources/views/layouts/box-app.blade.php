@@ -20,8 +20,9 @@
         </div>
     </div>
 </div>
-
 @endsection
+
+
 <div class="navigation">
     <ul>
         <li class="list active">
@@ -71,15 +72,32 @@
     </ul>
     <div id="popup" class="overlay">
         <div id="popupBody">
+            <div class="popupIcono">
+                <div>
+                    <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
+                </div>
+            </div>
+            <div class="my-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
+                <div class="sub-card-header">
+                    <div>
+                        <h5>Usuario</h5>
+                    </div>
+                </div>
+            </div>
             <div class="popuptitulo">
-                <h2>Que quieres publicar?</h2>
+                <h1>Que quieres publicar?</h1>
                 <a id="cerrar" href="/home">&times;</a>
+                <p>Elige una opcion</p>
             </div>
             
             
             <div class="popupContent">
-                <div class="botoncrear">            
-                    <a href="/posts/create"><input type="button" value="Post"></a>
+                <div class="botoncrear-post">
+                    <a href="/posts/create"><input type="button" value="Post"></a>          
+                </div>
+                <div class="borde"></div>
+                <div class="botoncrear-places">
                     <a href="/places/create"><input type="button" value="Place"></a>
                 </div>
             </div>

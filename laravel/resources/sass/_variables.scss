@@ -397,17 +397,18 @@ body{
 // #######################################################
 .navigation{
     position: fixed;
-    margin-top: 1%;
+    top: 20%; 
+    left: 1%; 
+    margin-top: 101px;
     width: 70px;
     height: auto;
     background-color: #eaece9;
     border-radius: 35px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-    margin-left: 1%;
     z-index: 1;
 }
 .navigation ul{
-    background-color: white;
+    background-color: #eaece9;
     position: absolute;
     top: 0;
     left: 0;
@@ -544,7 +545,6 @@ body{
 //                     FINAL SIDEBAR MENU
 // #######################################################
 
-
 // #######################################################
 //                       POPUP CREATE
 // #######################################################
@@ -565,56 +565,122 @@ body{
     
 }
 #popupBody{
-    border-radius: 15px;
-    box-shadow: 0 0 5px #CCC;
-    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px 8px rgba(0, 0, 0, 0.414);
+    background:  #eaece9;
     position: relative;
-    margin: 20% auto;
-    transition: all 2s ease-in-out;
-    width: 50%;
-    height: 30%;
+    margin: 12% auto;
+    transition: all 1s ease-in-out;
+    width: 40%;
+    height: 40%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+.popupIcono{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 0;
+}
+.popupIcono div{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background: #1149e0;
+    border-radius: 50%;
+    transition: 0.5s;
+    box-shadow: 0px 1px 15px 2px rgba(41, 41, 41, 0.377);
+}
+.popupIcono i{
+
+    font-size: 30px;
+    color: #eaece9;
+}
+#popupBody .my-card-header{
+
+    display: flex;
+    justify-content: center;
+    color: rgb(55, 55, 55);
+}
+#popupBody .my-card-header img{
+    width: 30px;
+    height: 30px;
 }
 #cerrar{
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 5px;
+    left: 20px;
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
-    color: #F00;
-        
+    color: rgb(55, 55, 55);
     transition: all 200ms;
 }
 .popuptitulo {
-    height: 50%;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.popuptitulo h1{
+
+    color: rgb(55, 55, 55);
+    font-size: 2vw;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.popuptitulo p{
+
+    color: rgb(55, 55, 55);
+    font-size: 1.1vw;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .popupContent {
-    height: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
-.botoncrear{
-    width: 50%;
+.botoncrear-post, .botoncrear-places{
+    width: 100%;
     margin: auto;
+    background-color:#c7c8c6;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.botoncrear a {
-    margin: 10px;
-    font-size: 30px;
+.botoncrear-post{
+    border-radius: 0px 0px 0px 10px;
 }
-.botoncrear input {
-    background-color: black;
-    color: white;
+.botoncrear-places{
+    border-radius: 0px 0px 10px 0px;
+}
+.borde{
+    border: 1px solid white;
+}
+.botoncrear-places:hover, .botoncrear-post:hover{
+    background-color:#1149e0;
+}
+.botoncrear-post input, .botoncrear-places input{
+    color: rgb(55, 55, 55);
+    font-size: 1.35vw;
+    font-size: 1vw;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
     border: none;
-    border-radius: 0.375rem;
+    width: 100%;
+    padding-top: 10px; padding-bottom: 10px;
+}
+.botoncrear-post:hover input, .botoncrear-places:hover input{
+    color: white;
 }
 // #######################################################
 //                     FINAL POPUP CREATE
@@ -727,7 +793,7 @@ body{
 footer {
     background-color: #B7D1DA;
     height: 13%;
-    width: 80%;
+    width: 99%;
     margin: auto;
     margin-top: 20px;
     border-radius: 50px 50px 0px 0px;
