@@ -31,6 +31,26 @@
                     value="1.7282036"/>                       
                 </div>
             </div>
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <div class="visiblitiy">
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">Public</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="1" checked>
+                            
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">Contacts</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="2">  
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">Private</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="3">   
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
             <div class="botonescreate">
                 <button type="submit" class="botoncreate">{{ _('Create') }}</button>
                 <button type="reset" class="resetcreate">{{ _('Reset') }}</button>

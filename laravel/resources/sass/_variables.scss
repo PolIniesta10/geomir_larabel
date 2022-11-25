@@ -374,8 +374,24 @@ body{
     height: 40px;
     width: 100%;
 }
+.visiblitiy {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 20%;
 
-
+}
+.visibilityform {
+    width: 90%;
+    display: flex;
+}
+.visibilityform .form-check {
+    background-color: red;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 // #######################################################
 //                     SIDEBAR MENU
 // #######################################################
