@@ -45,69 +45,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <div class="masterpost">
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');"> 
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+    @foreach ($posts as $post)
+        <div class="post">
+            <img src="{{ asset('storage/'.$post->file->filepath) }}"></img>
+            <div class="edit">
+                <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
+                <form id="form" method="POST" action="{{ route('posts.destroy', $post) }}" style="display: inline-block;">
+                    @csrf
+                    @method("DELETE")
+                    <button id="destroy" type="submit" class="botoneliminar" data-bs-toggle="modal" data-bs-target="#confirmModal"><i class="fa-solid fa-trash"></i></button>
+                </form>
+                <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+            </div>
+            <div class="text-topics2">
+                    <a href="#">Ver todos los comentarios</a>
+            </div>
+            
         </div>
-       
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-        <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__340.jpg');">
-        <div class="edit">
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('posts.edit', $post) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
+    @endforeach
 </div>
 @endsection

@@ -47,69 +47,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <div class="masterpost">
-<div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');"> 
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+    @foreach ($places as $place)
+        <div class="post">
+            <img src="{{ asset('storage/'.$place->file->filepath) }}"></img>
+            <div class="edit">
+                <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
+                <form id="form" method="POST" action="{{ route('places.destroy', $place) }}" style="display: inline-block;">
+                    @csrf
+                    @method("DELETE")
+                    <button id="destroy" type="submit" class="botoneliminar" data-bs-toggle="modal" data-bs-target="#confirmModal"><i class="fa-solid fa-trash"></i></button>
+                </form>
+                <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+            </div>
+            <div class="text-topics2">
+                    <a href="#">Ver todos los comentarios</a>
+            </div>
+            
         </div>
-       
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-        <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
-    <div class="post" style="background-image: url('https://1.bp.blogspot.com/-JREhSKN8sMM/VmH2B-jmFXI/AAAAAAAAIzg/ScNtA185M88/s1600/02273%2Bpaisajes01.jpg');">
-        <div class="edit">
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-pencil"></i></a>
-            <a href="{{ route('places.edit', $place) }}"><i class="fa-solid fa-trash"></i></a>
-            <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-        </div>
-    </div>
+    @endforeach
 </div>
 @endsection

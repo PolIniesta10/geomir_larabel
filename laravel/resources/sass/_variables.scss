@@ -188,6 +188,18 @@ body{
     background-color: var(--bs-card-cap-bg);
     border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
+.text-topics2 {
+    background-color: #eaece9;
+    color: rgb(190, 189, 189);
+    font-size: large;
+    border: 1px solid black;
+}
+.text-topics2 a {
+    color: rgb(190, 189, 189);
+}
+.text-topics2 a:hover {
+    color: grey;
+}
 .text-topics div button{
     border: none;
     background-color: transparent;
@@ -748,17 +760,14 @@ body{
     grid-template-rows: auto auto auto;
     padding: 10px;
     margin-left: 95px;
-
 }
 .post {
     font-size: 30px;
     text-align: center;
-    height: 250px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    height: 93%;
+    width: auto;
+    position: relative;
+    display: inline-block;
 }
 .post img {
     width: 100%;
@@ -769,17 +778,35 @@ body{
     opacity: 0;
     transition: 0.5s;
     display: flex;
-    justify-content: flex-start;
     margin: 5px;
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
 }
 .edit a {
     margin-left: 5px;
     color: #EAECE9;
     z-index: 1;
 }
-
+.edit a:hover {
+    color: blue;
+}
+.edit form {
+    margin: auto;
+}
 .post:hover .edit{
     opacity: 1;
+}
+.botoneliminar {
+    background-color: transparent;
+    border: none;
+}
+.botoneliminar i:hover {
+    color: blue;
+}
+.botoneliminar i {
+    color: #EAECE9;
+    margin-left: 5px;
 }
 
 // #######################################################

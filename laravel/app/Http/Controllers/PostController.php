@@ -14,10 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Post $post)
     {
         return view("posts.index", [
-            "posts" => Post::all()
+            "posts" => Post::all(),
+            'file'   => $post->file,
+            'author' => $post->user,
         ]);
     }
 
