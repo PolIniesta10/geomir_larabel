@@ -58,7 +58,7 @@
                     <button id="destroy" type="submit" class="botoneliminar" data-bs-toggle="modal" data-bs-target="#confirmModal"><i class="fa-solid fa-trash"></i></button>
                 </form>
                 <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
-                <@if($place->authUserHasFav())
+                @if($place->authUserHasFav())
                     <form method="POST" action="{{ route('places.unfavorite',$place) }}" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
