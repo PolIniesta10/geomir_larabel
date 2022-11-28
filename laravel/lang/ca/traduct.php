@@ -12,7 +12,7 @@ return [
     'error-post-delete' => 'ERROR eliminant el post',
     'error-post-edit' => 'ERROR, no ets propietari de aquest post',
 
-    'author_id' => 'Id autor',
+    'author_id' => 'Autor',
     'body' => 'Text',
     'created_at' => 'Creat',
     'file_id' => 'Arxiu',

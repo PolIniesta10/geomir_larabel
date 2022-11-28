@@ -195,7 +195,7 @@ body{
     border: 1px solid black;
 }
 .text-topics2 a {
-    color: rgb(190, 189, 189);
+    color: black;
 }
 .text-topics2 a:hover {
     color: grey;
@@ -746,7 +746,31 @@ body{
     margin-left: 5px;
 }
 .form-group {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+}
+.form-control2 {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    background-color: black;
+    background-clip: padding-box;
+    color: white;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.editpost {
+    width: 50%;
+    margin: auto;
+    background-color: #eaece9;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 // #######################################################
