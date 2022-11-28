@@ -1,8 +1,5 @@
 @extends('layouts.box-app')
 
-@section('box-title')
-    {{ __('Post') . " " . $post->id }}
-@endsection
 
 @section('content')
 <head>
@@ -12,43 +9,46 @@
     <img class="img-fluid" src="{{ asset('storage/'.$file->filepath) }}" title="Image preview"/>
     <table class="table">
             <tr>
-                <td scope="col">{{ __('traduct.body') }}</td>
+                <td scope="col"><strong>{{ __('traduct.body') }}</strong></td>
                 <td>{{ $post->body }}</td>
             </tr>
             <tr>
-            <td scope="col">{{ __('traduct.latitude') }}</td>
+            <td scope="col"><strong>{{ __('traduct.latitude') }}</strong></td>
                 <td>{{ $post->latitude }}</td>
             </tr>
             <tr>
-                <td scope="col">{{ __('traduct.longitude') }}</td>
+                <td scope="col"><strong>{{ __('traduct.longitude') }}</strong></td>
                 <td>{{ $post->longitude }}</td>
             </tr>
             <tr>
-                <td scope="col">{{ __('traduct.author_id') }}</td>
+                <td scope="col"><strong>{{ __('traduct.author_id') }}</strong></td>
                 <td>{{ $author->name }}</td>
             </tr>
             <tr>
-                <td scope="col">{{ __('traduct.created_at') }}</td>
+                <td scope="col"><strong>{{ __('traduct.created_at') }}</strong></td>
                 <td>{{ $post->created_at }}</td>
             </tr>
             <tr>
-                <td scope="col">{{ __('traduct.updated_at') }}</td>
+                <td scope="col"><strong>{{ __('traduct.updated_at') }}</strong></td>
                 <td>{{ $post->updated_at }}</td>
             </tr>
             <tr>
-                <td scope="col">{{ __('traduct.visibility_id') }}</td>
+                <td scope="col"><strong>{{ __('traduct.visibility_id') }}</strong></td>
                 <td>{{ $visibility->name }}</td>
             </tr>
             <tr>
-                <td scope="col">Likes</td>
-                <td>{{ $likes }} <i class="fa-solid fa-heart"></i></td>
+                <td scope="col"><strong>Likes</strong></td>
+                <td>{{ $likes }}<i class="fa-solid fa-heart"></i>
+               
+            </td>
+                
             </tr>
         </tbody>
     </table>
 
     <!-- Buttons -->
     <div class="container" style="margin-bottom:20px">
-        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ _('Back to list') }}</a>
+        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ __('traduct.back') }}</a>
     </div>
 
     <!-- Modal -->

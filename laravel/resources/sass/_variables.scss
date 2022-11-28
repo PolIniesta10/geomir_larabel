@@ -771,6 +771,7 @@ body{
     margin-top: 10%;
     border-radius: 10px;
     padding: 20px;
+    
 }
 
 // #######################################################
@@ -809,6 +810,9 @@ body{
     position: absolute;
     bottom: 1px;
     right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .edit a {
     margin-left: 5px;
@@ -834,6 +838,11 @@ body{
 .botoneliminar i {
     color: #EAECE9;
     margin-left: 5px;
+}
+.botonlike {
+    border: none;
+    background-color: transparent;
+    color: white;
 }
 
 // #######################################################

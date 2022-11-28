@@ -28,23 +28,11 @@ class PostController extends Controller
 
     public function index(Post $post)
     {
-        $contlikes = Like::where('post_id', '=', $post->id)->count();
-
-        $control = false;
-        
-        try {
-            if (Like::where('user_id', '=', auth()->user()->id)->where('post_id','=', $post->id)->exists()) {
-                $control = true;
-            }
-        } catch (Exception $e) {
-            $control = false;
-        }
+       
         return view("posts.index", [
             "posts" => Post::all(),
             'file'   => $post->file,
             'author' => $post->user,
-            "control" => $control,
-            "likes" => $contlikes,
         ]);
     }
 
@@ -115,14 +103,25 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $visibility=Visibility::find($post->visibility_id);
         $contlikes = Like::where('post_id', '=', $post->id)->count();
+
+        $control = false;
+        
+        try {
+            if (Like::where('user_id', '=', auth()->user()->id)->where('post_id','=', $post->id)->exists()) {
+                $control = true;
+            }
+        } catch (Exception $e) {
+            $control = false;
+        }
+        $visibility=Visibility::find($post->visibility_id);
         return view("posts.show", [
             'post'   => $post,
             'file'   => $post->file,
             'author' => $post->user,
             'visibility' => $visibility,
             "likes" => $contlikes,
+            "control" => $control,
         ]);
     }
 
@@ -145,7 +144,7 @@ class PostController extends Controller
         }
         else{
             return redirect()->route("posts.show", $post)
-            ->with('error',__('fpp_traduct.post-error-edit'));
+            ->with('error',__('traduct.error-post-edit'));
         }
     }
 
@@ -202,13 +201,20 @@ class PostController extends Controller
     
     public function destroy(Post $post)
     {
-        // Eliminar post de BD
-        $post->delete();
-        // Eliminar fitxer associat del disc i BD
-        $post->file->diskDelete();
-        // Patró PRG amb missatge d'èxit
-        return redirect()->route("posts.index")
-            ->with('success', __('Post successfully deleted'));
+        if(auth()->user()->id == $post->author_id){
+            // Eliminar post de BD
+            $post->delete();
+            // Eliminar fitxer associat del disc i BD
+            $post->file->diskDelete();
+            // Patró PRG amb missatge d'èxit
+            return redirect()->route("posts.index")
+                ->with('success', __('Post successfully deleted'));
+        }
+        else{
+            return redirect()->route("posts.show", $post)
+            ->with('error',__('traduct.error-post-delete'));
+        }
+        
     }
 
     public function like(Post $post)
