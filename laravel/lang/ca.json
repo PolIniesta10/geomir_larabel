@@ -1,5 +1,10 @@
 {
     "File successfully saved": "Fitxer desat correctament",
-    "ERROR uploading file": "ERROR pujant el fitxer"
+    "Post successfully saved": "Post desat correctament",
+    "Place successfully saved": "Place desat correctament",
+    "ERROR uploading file": "ERROR pujant el fitxer",
+    "File successfully deleted": "Fitxer eliminat correctament",
+    "Post successfully deleted": "Post eliminat correctament",
+    "Place successfully deleted": "Place eliminat correctament"
 }
  

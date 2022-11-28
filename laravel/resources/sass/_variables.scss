@@ -674,6 +674,9 @@ body{
 .botoncrear-places{
     border-radius: 0px 0px 10px 0px;
 }
+.botoncrear-post a, .botoncrear-places a{
+    width: 100%;
+}
 .borde{
     border: 1px solid white;
 }
@@ -843,6 +846,14 @@ body{
     border: none;
     background-color: transparent;
     color: red;
+}
+.botonfav {
+    border: none;
+    background-color: transparent;
+    color: yellow;
+}
+.botonfav:hover {
+    color: white;
 }
 
 // #######################################################

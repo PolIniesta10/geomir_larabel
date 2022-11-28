@@ -1,5 +1,10 @@
 {
     "File successfully saved": "Archivo guardado correctamente",
-    "ERROR uploading file": "ERROR subiendo archivo"
+    "Post successfully saved": "Post guardado correctamente",
+    "Place successfully saved": "Place guardado correctamente",
+    "ERROR uploading file": "ERROR subiendo archivo",
+    "File successfully deleted": "Fitxer eliminado correctamente",
+    "Post successfully deleted": "Post eliminado correctamente",
+    "Place successfully deleted": "Place eliminado correctamente"
 }
  
