@@ -58,11 +58,24 @@
                     <button id="destroy" type="submit" class="botoneliminar" data-bs-toggle="modal" data-bs-target="#confirmModal"><i class="fa-solid fa-trash"></i></button>
                 </form>
                 <a href="{{ route('places.show', $place) }}"><i class="fa-solid fa-eye"></i></a>
+                <@if($place->authUserHasFav())
+                    <form method="POST" action="{{ route('places.unfavorite',$place) }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <button class="botonlike" type="submit"><i class="fa-solid fa-star"></i></button>
+                        
+                    </form> 
+                @else 
+                    <form method="POST" action="{{ route('places.favorite',$place) }}" enctype="multipart/form-data">
+                        @csrf
+                        <button class="botonlike" type="submit"><i class="fa-regular fa-star"></i></button>
+                    </form> 
+                @endif 
+    
             </div>
             <div class="text-topics2">
-                    <a href="#">Ver todos los comentarios</a>
+                    <a href="#">{{ __('traduct.comments') }}</a>
             </div>
-            
         </div>
     @endforeach
 </div>

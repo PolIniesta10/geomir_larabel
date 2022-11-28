@@ -48,7 +48,7 @@
 
     <!-- Buttons -->
     <div class="container" style="margin-bottom:20px">
-        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ _('Back to list') }}</a>
+        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ __('traduct.back') }}</a>
     </div>
 
     <!-- Modal -->

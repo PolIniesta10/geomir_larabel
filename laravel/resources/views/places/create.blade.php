@@ -9,31 +9,55 @@
     <div class="formcreate">
         <form method="post" action="{{ route('places.store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="cajasformcreate">
-                <label for="name">{{ _('Name') }}</label>
-                <input type="text" id="name" name="name" class="form-control" />
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="{{ __('traduct.name') }}"/>
+                </div>
             </div>
-            <div class="cajasformcreate">
-                <label for="description">{{ _('Description') }}</label>
-                <textarea id="description" name="description" class="form-control"></textarea>
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <textarea id="description" name="description" class="form-control" placeholder="{{ __('traduct.description') }}"></textarea>
+                </div>
             </div>
-            <div class="cajasformcreate">
-                <label for="upload">{{ _('File') }}</label>
-                <input type="file" id="upload" name="upload" class="form-control" />
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <input type="file" id="upload" name="upload"/>
+                </div>
             </div>
-            <div class="cajasformcreate">            
-                    <label for="latitude">{{ _('Latitude') }}</label>
+            <div class="camposform">
+                <div class="confirmemailpass">
                     <input type="text" id="latitude" name="latitude" class="form-control"
-                        value="41.2310371"/>
+                    placeholder="{{ __('traduct.latitude') }}"/>
+                </div>
             </div>
-            <div class="cajasformcreate">            
-                <label for="longitude">{{ _('Longitude') }}</label>
-                <input type="text" id="longitude" name="longitude" class="form-control"
-                        value="1.7282036"/>
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <input type="text" id="longitude" name="longitude" class="form-control"
+                    placeholder="{{ __('traduct.longitude') }}"/>                       
+                </div>
+            </div>
+            <div class="camposform">
+                <div class="confirmemailpass">
+                    <div class="visiblitiy">
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_public') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="1" checked>
+                            
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_contacts') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="2">  
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_private') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="3">   
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="botonescreate">
-                <button type="submit" class="botoncreate">{{ _('Create') }}</button>
-                <button type="reset" class="resetcreate">{{ _('Reset') }}</button>
+                <button type="submit" class="botoncreate">{{ __('traduct.create') }}</button>
+                <button type="reset" class="resetcreate">{{ __('traduct.reset') }}</button>
                 <a href="/home"><input type="button" class="cancelarcreate" value="Cancelar"></a>
             </div>
         </form>
