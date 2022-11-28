@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="text-topics">
-                    <a href="#">Ver todos los comentarios</a>
+                    <a href="#">{{ __('traduct.comments') }}</a>
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="text-topics">
-                    <a href="#">Ver todos los comentarios</a>
+                    <a href="#">{{ __('traduct.comments') }}</a>
                 </div>
             </div>
 
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="text-topics">
-                    <a href="#">Ver todos los comentarios</a>
+                    <a href="#">{{ __('traduct.comments') }}</a>
                 </div>
             </div>  
             
@@ -179,7 +179,7 @@
         </div>
     </div>
     <div class="cajasfooter2">
-        <div class="cajamediofootermensaje"><h1>GRACIAS!</h1></div>
+        <div class="cajamediofootermensaje"><h1>{{ __('traduct.comments') }}</h1></div>
         <div class="cajamediofooterredes">
             <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             

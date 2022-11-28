@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\File;
+use App\Models\Visibility;
+use App\Models\User;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -16,10 +19,23 @@ class PostController extends Controller
      */
     public function index(Post $post)
     {
+        $contlikes = Like::where('post_id', '=', $post->id)->count();
+
+        $control = false;
+        
+        try {
+            if (Like::where('user_id', '=', auth()->user()->id)->where('post_id','=', $post->id)->exists()) {
+                $control = true;
+            }
+        } catch (Exception $e) {
+            $control = false;
+        }
         return view("posts.index", [
             "posts" => Post::all(),
             'file'   => $post->file,
             'author' => $post->user,
+            "control" => $control,
+            "likes" => $contlikes,
         ]);
     }
 
@@ -90,10 +106,14 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $visibility=Visibility::find($post->visibility_id);
+        $contlikes = Like::where('post_id', '=', $post->id)->count();
         return view("posts.show", [
             'post'   => $post,
             'file'   => $post->file,
             'author' => $post->user,
+            'visibility' => $visibility,
+            "likes" => $contlikes,
         ]);
     }
 
@@ -105,11 +125,19 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view("posts.edit", [
-            'post'   => $post,
-            'file'   => $post->file,
-            'author' => $post->user,
-        ]);
+        if(auth()->user()->id == $post->author_id){
+            $visibility=Visibility::find($post->visibility_id);
+            return view("posts.edit", [
+                'post'   => $post,
+                'file'   => $post->file,
+                'author' => $post->user,
+                'visibility' => $visibility,
+            ]);
+        }
+        else{
+            return redirect()->route("posts.show", $post)
+            ->with('error',__('fpp_traduct.post-error-edit'));
+        }
     }
 
     /**
@@ -134,7 +162,7 @@ class PostController extends Controller
         $upload    = $request->file('upload');
         $latitude  = $request->get('latitude');
         $longitude = $request->get('longitude');
-        $visibility    = $request->get('visibility');
+        $visibility_id    = $request->get('visibility_id');
 
         // Desar fitxer (opcional)
         if (is_null($upload) || $post->file->diskSave($upload)) {
@@ -143,7 +171,7 @@ class PostController extends Controller
             $post->body      = $body;
             $post->latitude  = $latitude;
             $post->longitude = $longitude;
-            $post->visibility_id = $visibility;
+            $post->visibility_id = $visibility_id;
             $post->save();
             Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
@@ -162,6 +190,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy(Post $post)
     {
         // Eliminar post de BD
@@ -171,5 +200,24 @@ class PostController extends Controller
         // Patró PRG amb missatge d'èxit
         return redirect()->route("posts.index")
             ->with('success', __('Post successfully deleted'));
+    }
+
+    public function like(Post $post)
+    {
+
+        $user=User::find(auth()->user()->id);
+        $like = Like::create([
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+        ]);
+        return redirect()->back();
+
+        
+    }
+    
+    public function unlike(post $post){
+        Like::where('user_id',auth()->user()->id)
+                 ->where('post_id', $post->id )->delete();
+        return redirect()->back();
     }
 }

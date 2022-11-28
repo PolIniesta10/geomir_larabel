@@ -8,32 +8,36 @@
     <img class="img-fluid" src="{{ asset('storage/'.$file->filepath) }}" title="Image preview"/>
     <table class="table">
             <tr>
-                <td><strong>ID<strong></td>
-                <td>{{ $post->id }}</td>
-            </tr>
-            <tr>
-                <td><strong>Body</strong></td>
+                <td scope="col">{{ __('traduct.body') }}</td>
                 <td>{{ $post->body }}</td>
             </tr>
             <tr>
-                <td><strong>Lat</strong></td>
+            <td scope="col">{{ __('traduct.latitude') }}</td>
                 <td>{{ $post->latitude }}</td>
             </tr>
             <tr>
-                <td><strong>Lng</strong></td>
+                <td scope="col">{{ __('traduct.longitude') }}</td>
                 <td>{{ $post->longitude }}</td>
             </tr>
             <tr>
-                <td><strong>Author</strong></td>
+                <td scope="col">{{ __('traduct.author_id') }}</td>
                 <td>{{ $author->name }}</td>
             </tr>
             <tr>
-                <td><strong>Created</strong></td>
+                <td scope="col">{{ __('traduct.created_at') }}</td>
                 <td>{{ $post->created_at }}</td>
             </tr>
             <tr>
-                <td><strong>Updated</strong></td>
+                <td scope="col">{{ __('traduct.updated_at') }}</td>
                 <td>{{ $post->updated_at }}</td>
+            </tr>
+            <tr>
+                <td scope="col">{{ __('traduct.visibility_id') }}</td>
+                <td>{{ $visibility->name }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Likes</td>
+                <td>{{ $likes }} <i class="fa-solid fa-heart"></i></td>
             </tr>
         </tbody>
     </table>

@@ -56,9 +56,23 @@
                     <button id="destroy" type="submit" class="botoneliminar" data-bs-toggle="modal" data-bs-target="#confirmModal"><i class="fa-solid fa-trash"></i></button>
                 </form>
                 <a href="{{ route('posts.show', $post) }}"><i class="fa-solid fa-eye"></i></a>
+                @if($control == true)
+                    <form method="post" action="{{ route('posts.unlike',$post) }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-primary" type="submit">Remove from likes</button>
+                        
+                    </form> 
+                @else 
+                    <form method="post" action="{{ route('posts.like',$post) }}" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn btn-primary" type="submit">Add to likes</button>
+                    </form> 
+                @endif 
+    
             </div>
             <div class="text-topics2">
-                    <a href="#">Ver todos los comentarios</a>
+                    <a href="#">{{ __('traduct.comments') }}</a>
             </div>
             
         </div>

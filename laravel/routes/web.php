@@ -35,10 +35,13 @@ Route::get('mail/test', [MailController::class, 'test']);
 Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);
 
 Route::resource('files', FileController::class)
-    ->middleware(['auth', 'permission:files.*']);
+    ->middleware(['auth', 'permission:files']);
 
 Route::resource('posts', PostController::class)
-    ->middleware(['auth', 'permission:posts.*']);
+    ->middleware(['auth', 'permission:posts']);
 
 Route::resource('places', PlaceController::class)
     ->middleware(['auth', 'permission:places']);
+
+Route::post('/posts/{post}/like', [App\Http\Controllers\PostController::class, 'like'])->name('posts.like');
+Route::delete('/posts/{post}/like', [App\Http\Controllers\PostController::class, 'unlike'])->name('posts.unlike');

@@ -28,43 +28,43 @@
         <li class="list active">
             <a href="/home">
                 <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="title">Home</span>
+                <span class="title">{{ __('traduct.home') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="#">
                 <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <span class="title">Buscar</span>
+                <span class="title">{{ __('traduct.search') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="#popup">
                 <span class="icon"><i class="fa-solid fa-camera-retro"></i></span>
-                <span class="title">Publicar</span>
+                <span class="title">{{ __('traduct.post') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="#">
                 <span class="icon"><i class="fa-solid fa-bell"></i></span>
-                <span class="title">Notificaciones</span>
+                <span class="title">{{ __('traduct.notifications') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="#">
                 <span class="icon"><i class="fa-solid fa-user"></i></span>
-                <span class="title">Perfil</span>
+                <span class="title">{{ __('traduct.profile') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="/posts">
                 <span class="icon"><i class="fa-solid fa-eye"></i></span>
-                <span class="title">Posts</span>
+                <span class="title">{{ __('traduct.posts') }}</span>
             </a>
         </li>
         <li class="list">
             <a href="/places">
                 <span class="icon"><i class="fa-solid fa-eye"></i></span>
-                <span class="title">Places</span>
+                <span class="title">{{ __('traduct.places') }}</span>
             </a>
         </li>
         
@@ -86,9 +86,9 @@
                 </div>
             </div>
             <div class="popuptitulo">
-                <h1>Que quieres publicar?</h1>
+                <h1>{{ __('traduct.wantpublish') }}</h1>
                 <a id="cerrar" href="/home">&times;</a>
-                <p>Elige una opcion</p>
+                <p>{{ __('traduct.chooseoption') }}</p>
             </div>
             
             

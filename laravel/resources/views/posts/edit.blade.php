@@ -10,25 +10,45 @@
         @csrf
         @method("PUT")
         <div class="form-group">
-            <label for="body">{{ _('Body') }}</label>
+            <label for="body">{{ __('traduct.body') }}</label>
             <textarea id="body" name="body" class="form-control">{{ $post->body }}</textarea>
         </div>
         <div class="form-group">
-            <label for="upload">{{ _('File') }}</label>
+            <label for="upload">{{ __('traduct.file_id') }}</label>
             <input type="file" id="upload" name="upload" class="form-control" />
         </div>
         <div class="form-group">            
-                <label for="latitude">{{ _('Latitude') }}</label>
+                <label for="latitude">{{ __('traduct.latitude') }}</label>
                 <input type="text" id="latitude" name="latitude" class="form-control"
                     value="{{ $post->latitude }}"/>
         </div>
         <div class="form-group">            
-                <label for="longitude">{{ _('Longitude') }}</label>
+                <label for="longitude">{{ __('traduct.longitude') }}</label>
                 <input type="text" id="longitude" name="longitude" class="form-control"
                     value="{{ $post->longitude }}"/>
         </div>
-        <button type="submit" class="btn btn-primary">{{ _('Update') }}</button>
-        <button type="reset" class="btn btn-secondary">{{ _('Reset') }}</button>
-        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ _('Back to list') }}</a>
+        <div class="form-group">
+                <div class="confirmemailpass">
+                    <div class="visiblitiy">
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_public') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="1" checked>
+                            
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_contacts') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="2">  
+                        </div>
+                        <div class="visibilityform">
+                            <label class="form-check-label" for="visibility_id">{{ __('traduct.visibility_private') }}</label>
+                            <input class="form-check" type="radio" name="visibility_id" value="3">   
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        <button type="submit" class="btn btn-primary">{{ __('traduct.update') }}</button>
+        <button type="reset" class="btn btn-secondary">{{ __('traduct.reset') }}</button>
+        <a class="btn" href="{{ route('posts.index') }}" role="button">⬅️ {{ __('traduct.back') }}</a>
     </form>
 @endsection
