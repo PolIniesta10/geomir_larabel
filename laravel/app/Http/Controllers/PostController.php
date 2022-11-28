@@ -168,7 +168,7 @@ class PostController extends Controller
         // Obtenir dades del formulari
         $body      = $request->get('body');
         $upload    = $request->file('upload');
-        $latitude  = $request->get('latitude');
+        $latitude  = $request->get('latitude'); 
         $longitude = $request->get('longitude');
         $visibility_id    = $request->get('visibility_id');
 

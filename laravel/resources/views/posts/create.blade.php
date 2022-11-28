@@ -48,7 +48,6 @@
                             <input class="form-check" type="radio" name="visibility_id" value="3">   
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div class="botonescreate">

@@ -11,6 +11,12 @@ return [
     'success-post-delete' => 'Post eliminado correctamente',
     'error-post-delete' => 'ERROR al eliminar el post',
     'error-post-edit' => 'ERROR, no eres propietario de este post',
+
+    'success-place' => 'Place guardado correctamente',
+    'error-place' => 'ERROR al subir el place',
+    'success-place-delete' => 'Place eliminado correctamente',
+    'error-place-delete' => 'ERROR al eliminar el place',
+    'error-place-edit' => 'ERROR, no eres propietario de este place',
     
     'author_id' => 'Autor',
     'body' => 'Texto',
@@ -29,6 +35,7 @@ return [
     'reset' => 'Resetear',
     'cancel' => 'Cancelar',
     'update' => 'Actualizar',
+    'file' => 'Fichero',
     'back' => 'Volver a la lista',
     'comments' => 'Ver todos los comentarios',
     'thanks' => 'Gracias!',
@@ -41,4 +48,5 @@ return [
     'places' => 'Places',
     'wantpublish' => 'Que quieres publicar?',
     'chooseoption' => 'Elige una opción',
+    'sure' => 'Estás seguro?'
 ];
