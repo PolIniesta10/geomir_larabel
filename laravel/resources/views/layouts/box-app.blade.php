@@ -32,9 +32,9 @@
             </a>
         </li>
         <li class="list">
-            <a href="#">
+            <a>
                 <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <span class="title">{{ __('traduct.search') }}</span>
+                <span class="search"><input type="text" placeholder="{{ __('traduct.search') }}"></span>
             </a>
         </li>
         <li class="list">
