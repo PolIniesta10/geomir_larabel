@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\File;
 use App\Http\Controllers\Api\Find;
+
 class FileController extends Controller
 {
     /**
@@ -30,8 +31,8 @@ class FileController extends Controller
     public function store(Request $request)
     {
         // Validar fitxer
-       $validatedData = $request->validate([
-        'upload' => 'required|mimes:gif,jpeg,jpg,png|max:2048'
+        $validatedData = $request->validate([
+            'upload' => 'required|mimes:gif,jpeg,jpg,png|max:2048'
         ]);
         // Desar fitxer al disc i inserir dades a BD
         $upload = $request->file('upload');
@@ -49,7 +50,6 @@ class FileController extends Controller
                 'message' => 'Error uploading file'
             ], 500);
         }
-
     }
 
     /**
@@ -71,7 +71,6 @@ class FileController extends Controller
                 'message'    => "File read ERROR"
             ], 404);
         }
-        
     }
 
     /**

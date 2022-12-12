@@ -81,7 +81,7 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/74/74472.png" alt="user">
                 <div class="sub-card-header">
                     <div>
-                        <h5>Usuario</h5>
+                        <h5>{{ Auth::user()->name }}</h5>
                     </div>
                 </div>
             </div>
