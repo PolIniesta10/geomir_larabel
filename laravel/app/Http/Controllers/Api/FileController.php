@@ -129,6 +129,7 @@ class FileController extends Controller
         }
 
         $ok = $file->diskDelete();
+        
         if($ok){
             return response()->json([
                 'success' => true,
