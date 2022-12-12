@@ -113,6 +113,7 @@ class FileController extends Controller
                 ->with('error', __('ERROR uploading file'));
         }
     }
+    
 
     /**
      * Remove the specified resource from storage.

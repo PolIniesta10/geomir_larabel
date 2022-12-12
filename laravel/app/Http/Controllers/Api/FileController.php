@@ -110,7 +110,10 @@ class FileController extends Controller
             ], 422);
         }
     }
-
+    public function update_workaround(Request $request, $id)
+    {
+        return $this->update($request, $id);
+    }
     /**
      * Remove the specified resource from storage.
      *
