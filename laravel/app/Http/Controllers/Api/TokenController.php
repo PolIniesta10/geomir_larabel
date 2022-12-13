@@ -63,5 +63,20 @@ class TokenController extends Controller
         }
         
     }
+    public function register(Request $request)
+    {
+        $credentials = Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        
+        $credentials = User::create([
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+        $token = $user->createToken("authToken")->plainTextToken;
+    }
 
 }

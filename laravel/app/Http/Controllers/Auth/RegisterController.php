@@ -73,8 +73,6 @@ class RegisterController extends Controller
 
         $user->assignRole('author');
         
-        $user->assignRole('author');
-
         event(new \Illuminate\Auth\Events\Registered($user));
 
         $user->sendEmailVerificationNotification();
