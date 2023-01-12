@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
+use App\Models\Place;
 use App\Models\File;
 use App\Models\User;
-use App\Models\Like;
 use App\Models\Visibility;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
-class PostController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class PostController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data'    => Post::all()
+            'data'    => Place::all()
         ], 200);
     }
 
@@ -40,18 +40,18 @@ class PostController extends Controller
         ]);
         // Desar fitxer al disc i inserir dades a BD
         $upload = $request->file('upload');
-        $post = new Post();
+        $place = new Place();
         $ok = $file->diskSave($upload);
 
         if ($ok) {
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 201);
         } else {
             return response()->json([
                 'success'  => false,
-                'message' => 'Error uploading post'
+                'message' => 'Error uploading place'
             ], 500);
         }
     }
@@ -64,15 +64,15 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        if($post = Post::find($id)){
+        if($place = PLace::find($id)){
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 200);
         }else {
             return response()->json([
                 'success' => false,
-                'message'    => "Post read ERROR"
+                'message'    => "Place read ERROR"
             ], 404);
         }
     }
@@ -86,15 +86,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
-        if ($post){   
-
+        $place = Place::find($id);
+        if ($place){   
+        
             // Validar fitxer
             $validatedData = $request->validate([
                 'upload' => 'mimes:gif,jpeg,jpg,mp4,png|max:1024',
             ]);
         
-            $file=File::find($post->file_id);
+            $file=File::find($place->file_id);
 
             // Obtenir dades del fitxer
 
@@ -135,16 +135,18 @@ class PostController extends Controller
                 $file->filesize=$fileSize;
                 $file->save();
                 \Log::debug("DB storage OK");
-                $post->body=$request->input('body');
-                $post->latitude=$request->input('latitude');
-                $post->longitude=$request->input('longitude');
-                $post->visibility_id=$request->input('visibility_id');
-                $post->save();
+                $place->name=$request->input('name');
+                $place->description=$request->input('description');
+                $place->latitude=$request->input('latitude');
+                $place->longitude=$request->input('longitude');
+                $place->category_id=$request->input('category_id');
+                $place->visibility_id=$request->input('visibility_id');
+                $place->save();
 
                 // Patró PRG amb missatge d'èxit
                 return response()->json([
                     'success' => true,
-                    'data'    => $post
+                    'data'    => $place
                 ], 200);
 
 
@@ -153,14 +155,14 @@ class PostController extends Controller
                 // Patró PRG amb missatge d'error
                 return response()->json([
                     'success'  => false,
-                    'message' => 'Error uploading post'
+                    'message' => 'Error uploading place'
                 ], 500);
             }
         }
         else{
             return response()->json([
                 'success'  => false,
-                'message' => 'Error searching post'
+                'message' => 'Error searching place'
             ], 404);
         }
     }
@@ -172,22 +174,49 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $place = Place::find($id);
+        if($place){
         
-        if($post == null){
-            return response()->json([
-                'success' => false,
-                'message'    => "ERROR not found"
-            ], 404);
-        }
+            if(auth()->user()->id == $place->author_id){
 
-        $ok = $post->diskDelete();
-        
-        if($ok){
-            return response()->json([
-                'success' => true,
-                'data'    => $post
-            ], 200);
+                $file=File::find($place->file_id);
+
+                \Storage::disk('public')->delete($place -> id);
+                $place->delete();
+
+                \Storage::disk('public')->delete($file -> filepath);
+                $file->delete();
+                if (\Storage::disk('public')->exists($place->id)) {
+                    \Log::debug("Local storage OK");
+                    // Patró PRG amb missatge d'error
+                    return response()->json([
+                        'success'  => false,
+                        'message' => 'Error deleting place'
+                    ], 500);
+                }
+                else{
+                    \Log::debug("Place Delete");
+                    // Patró PRG amb missatge d'èxit
+                    return response()->json([
+                        'success' => true,
+                        'data'    => $place
+                    ], 200);
+                } 
+                
+            }
+            else{
+                return response()->json([
+                    'success'  => false,
+                    'message' => 'Error deleting place, its not yours'
+                ], 500);
+            }
         }
+        else{
+            return response()->json([
+                'success'  => false,
+                'message' => 'Place not found'
+            ], 404);
+
+        } 
     }
 }
