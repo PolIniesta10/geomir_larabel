@@ -22,7 +22,6 @@
 </div>
 @endsection
 
-
 <div class="navigation">
     <ul>
         <li class="list active">

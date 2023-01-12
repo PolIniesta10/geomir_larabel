@@ -975,3 +975,256 @@ footer {
 // #######################################################
 //                     FINAL FOOTER HOME
 // #######################################################
+
+// #######################################################
+//                     MEDIA QUERY
+// #######################################################
+
+@media screen and (max-width: 990px) {
+    .navigation{
+        width: 50px;
+        margin-top: 150px;
+    }
+    .navigation ul .list {
+        height: 50px;
+        left: -42px;
+    }
+    .navigation ul .indicator{
+        width: 40px;
+        height: 40px;
+    }
+    .navigation ul .indicator::before{
+    
+        content: '';
+        position: absolute;
+        top: 63%;
+        left: 63%;
+        transform: translate(-50%,-50%);
+        width: 40px;
+        height: 40px;
+
+    }
+    .navigation ul .list a .icon i {
+        font-size: 18px;
+    }
+    
+  }
+
+@media screen and (max-width: 650px) {
+    .navigation{
+        position: relative;
+        top: -38px; 
+        width: auto;
+        margin-left: 18%; margin-right: 18%;
+    }
+    .navigation ul {
+        flex-direction: row;
+        height: auto;
+        left: 0;
+    }
+    .navigation ul .list {
+        width: 50px;
+        height: 50px;
+        left: -32px;
+    }
+    .navigation ul .indicator{
+        width: 40px;
+        height: 40px;
+    }
+    .navigation ul .indicator::before{
+    
+        content: '';
+        position: absolute;
+        top: 63%;
+        left: 63%;
+        transform: translate(-50%,-50%);
+        width: 40px;
+        height: 40px;
+
+    }
+}
+
+// #######################################################
+//                     FINAL MEDIA QUERY
+// #######################################################
+
+// #######################################################
+//                       ABOUT US
+// #######################################################
+
+.title-about-us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-about-us .title{
+    font-size: 45px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container-about-us{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container-about-us .card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.container-about-us .card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.container-about-us  .card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.container-about-us .card .back{
+    transform: perspective(600px) rotateY(180deg);
+    box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.container-about-us .card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+.container-about-us .card:hover img{
+    filter: contrast(150%);
+} 
+
+.spacer{
+    background-color: transparent;
+    width: 100%;
+    height: 5px;
+}
+
+.description-about{
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+.face .description-about .linia{
+    background-color: #a7a7a7b9;
+    box-shadow: 0px 1px 15px -3px rgb(80, 80, 80);
+    width: 80%;
+    height: 1.5px;
+}
+
+.name-about{
+    font-weight:bold;
+    font-size:22px;
+    color: white;        
+}
+
+.surname-about{
+    font-size:18px;
+    color:rgb(218, 218, 218);
+}
+
+.name-about p, .surname-about p{
+    margin: 5px;
+    padding: 0;
+    width: 100%;
+}
+
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+}
+.modal-header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+}
+.modal-header .btn-close{
+    margin-right: 25px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    z-index: 100;
+}
+.modal-content video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.modal-content .menu-navigation{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform:translateX(-50%);
+    z-index: 100;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content .menu-navigation li{
+    list-style: none;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 4px;
+    background: white;
+    padding: 3px 3px 0;
+    opacity: 0.7;
+    transition:0.5s;
+}
+.modal-content .menu-navigation li:hover{
+    opacity: 1;
+
+}
+.modal-content .menu-navigation li img{
+    width: 120px;
+    height: 120px;
+    transition:0.5s;
+}
+.modal-content .menu-navigation li img:hover{
+    width:180px;
+    height: 180px;
+}
+
+// #######################################################
+//                    FINAL ABOUT US
+// #######################################################
