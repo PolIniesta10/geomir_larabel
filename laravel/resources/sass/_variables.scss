@@ -932,6 +932,10 @@ footer {
 .cajaizqfooter p {
     margin: 0;
 }
+.cajaizqfooter a {
+    text-decoration: none;
+    color:  var(--bs-body-color);;
+}
 .cajasfooter2 {
     margin: auto;
     display: flex;
@@ -1061,6 +1065,10 @@ footer {
 .title-about-us .title{
     font-size: 45px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:  rgba(255, 255, 255, 0.534);
+    text-shadow: 0px 2px 3px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .container-about-us{
@@ -1073,8 +1081,7 @@ footer {
     position: relative;
     width: 300px;
     height: 350px;
-    margin-right: 10px;
-    margin-left: 10px;
+    background: transparent;
 }
 
 .container-about-us .card .face{
@@ -1087,9 +1094,39 @@ footer {
     transition: 1s;
 }
 
-.container-about-us  .card .front{
+.container-about-us .card .front-pol{
     transform: perspective(600px) rotateY(0deg);
     box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card .back-pol{
+    transform: perspective(600px) rotateY(180deg);
+    box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card:hover .front-pol{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.container-about-us .card:hover .back-pol{
+    transform: perspective(600px) rotateY(360deg);
+}
+.container-about-us .card .front-oscar{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card .back-oscar{
+    transform: perspective(600px) rotateX(180deg);
+    box-shadow: 0 5px 10px black;
+}
+
+.container-about-us .card:hover .front-oscar{
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.container-about-us .card:hover .back-oscar{
+    transform: perspective(600px) rotateX(360deg);
 }
 
 .container-about-us .card img{
@@ -1100,21 +1137,12 @@ footer {
     filter: grayscale(100%);
 }
 
-.container-about-us .card .back{
-    transform: perspective(600px) rotateY(180deg);
-    box-shadow: 0 5px 10px black;
-}
-
-.container-about-us .card:hover .front{
-    transform: perspective(600px) rotateY(180deg);
-}
-
-.container-about-us .card:hover .back{
-    transform: perspective(600px) rotateY(360deg);
-}
-
-.container-about-us .card:hover img{
+.container-about-us .card:hover #img-pol{
     filter: contrast(150%);
+} 
+
+.container-about-us .card:hover #img-oscar{
+    filter: sepia(200%);
 } 
 
 .spacer{
@@ -1223,6 +1251,14 @@ footer {
 .modal-content .menu-navigation li img:hover{
     width:180px;
     height: 180px;
+}
+.drag-drop {
+    width: 300px;
+    height: 350px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.075);
+    box-shadow: 0 5px 10px black;
 }
 
 // #######################################################
