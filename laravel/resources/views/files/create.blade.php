@@ -4,6 +4,9 @@
 @section('box-title')
     {{ __('Add file') }}
 @endsection
+@env(['local','development'])
+   @vite('resources/js/files/create.js')
+@endenv
 
 @section('box-content')
     <form method="post" action="{{ route('files.store') }}" enctype="multipart/form-data">

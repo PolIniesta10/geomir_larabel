@@ -3,8 +3,13 @@
 @section('content')
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-
 <script>
 
     window.addEventListener('load', iniciarOscar, false);
@@ -28,8 +33,8 @@
     function iniciarOscar() {
         var audioOscar = document.getElementById("audioOscar");
         var cajaOscar = document.getElementById('cajaOscar');
-        cajaOscar.addEventListener('mouseover', playOscar, false);
-        cajaOscar.addEventListener('mouseout', pauseOscar, false);
+        cajaOscar.addEventListener('mouseover', playOscar, true);
+        cajaOscar.addEventListener('mouseout', pauseOscar, true);
     }
 
     function playOscar() {
@@ -59,7 +64,7 @@
     }
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+
 <div class="title-about-us">
     <h1 class="title">Conoce a nuestro equipo</h1>
 </div>
@@ -81,7 +86,7 @@
                 
             </div>
 
-            <audio src="CANELITA - JUANITO JUAN (VIDEOCLIP OFICIAL) (NUEVOEXITOS.COM).mp3" id="audioPol"></audio>
+            <audio src="/videos/CANELITA - JUANITO JUAN (VIDEOCLIP OFICIAL) (NUEVOEXITOS.COM).mp3" id="audioPol"></audio>
 
             <div class="face back-pol">
 
@@ -114,7 +119,7 @@
                 
             </div>
 
-            <audio src="Bob Esponja Intro (Español de España) (NUEVOEXITOS.COM).mp3" id="audioOscar"></audio>
+            <audio src="/videos/Bob Esponja Intro (Español de España) (NUEVOEXITOS.COM).mp3" id="audioOscar"></audio>
 
             <div class="face back-oscar">
 
@@ -147,11 +152,11 @@
         </div>
         <div class="modal-body"></div>
             <video id="slider" autoplay loop>
-                <source src="CrazyFrog.mp4" type="video/mp4">
+                <source src="/videos/CrazyFrog.mp4" type="video/mp4">
             </video>
             <ul class="menu-navigation">
-                <li onclick="videoURl('./videos/CrazyFrog.mp4')"><img src="CrazyFrog.jpg"></li>
-                <li onclick="videoURl('./videos/OsitoGominola.mp4')"><img src="OsitoGominola.jpg"></li>
+                <li onclick="videoURl('/videos/CrazyFrog.mp4')"><img src="/videos/CrazyFrog.jpg"></li>
+                <li onclick="videoURl('/videos/OsitoGominola.mp4')"><img src="/videos/OsitoGominola.jpg"></li>
             </ul>
         </div>
     </div>
