@@ -10,7 +10,7 @@ use App\Models\User;
 use Laravel\Sanctum\Sanctum;
 
 
-class PostTest extends TestCase
+class PlaceTest extends TestCase
 {
     public static User $testUser;
  
@@ -27,10 +27,10 @@ class PostTest extends TestCase
         ]);
     }
 
-    public function test_post_list()
+    public function test_place_list()
     {
-        // List all posts using API web service
-        $response = $this->getJson("/api/post");
+        // List all places using API web service
+        $response = $this->getJson("/api/place");
         // Check OK response
         $this->_test_ok($response);
         // Check JSON dynamic values
@@ -41,7 +41,7 @@ class PostTest extends TestCase
         self::$testUser->save();
     }
  
-    public function test_post_create() : object
+    public function test_place_create() : object
     {
         $user = self::$testUser;
         Sanctum::actingAs(
@@ -52,16 +52,17 @@ class PostTest extends TestCase
         $name  = "avatar.png";
         $size = 500; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
+        $description = "description";
         $latitude = 1.14;
         $longitude = 0.43;
         $visibility_id = 1;
         $author_id = 2;
 
-        // Upload fake post using API web service
-        $response = $this->postJson("/api/post", [
+        // Upload fake place using API web service
+        $response = $this->postJson("/api/place", [
+            "name"=>$name,
             "upload" => $upload,
-            "body" => $body,
+            "description" => $description,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "visibility_id" => $visibility_id,
@@ -74,8 +75,9 @@ class PostTest extends TestCase
 
         // Check validation errors
         $response->assertValid([
+            "name",
             "upload",
-            "body",
+            "description",
             "latitude",
             "longitude",
             "visibility_id",
@@ -92,68 +94,70 @@ class PostTest extends TestCase
         return $json->data;
     }
     
-    public function test_post_create_error()
+    public function test_place_create_error()
     {
-        // Create fake post with invalid characters
+        // Create fake place with invalid characters
         $name  = "avatar.png";
         $size = 5000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = 1;
+        $description = 1;
         $latitude = 'error';
         $longitude = 'error';
         $visibility_id = 'error';
         $author_id = 'error';
 
-        // Upload fake post using API web service
-        $response = $this->postJson("/api/post", [
+        // Upload fake place using API web service
+        $response = $this->postJson("/api/place", [
+            "name"=>$name,
             "upload" => $upload,
-            "body" => $body,
+            "description" => $description,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "visibility_id" => $visibility_id,
             "author_id" => $author_id,
+
         ]);
         // Check ERROR response
         $this->_test_error($response);
     }
     
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
-    public function test_post_read(object $post)
+    public function test_place_read(object $place)
     {
-        // Read one post
-        $response = $this->getJson("/api/post/{$post->id}");
+        // Read one place
+        $response = $this->getJson("/api/place/{$place->id}");
         // Check OK response
         $this->_test_ok($response);
     }
     
-    public function test_post_read_notfound()
+    public function test_place_read_notfound()
     {
         $id = "not_exists";
-        $response = $this->getJson("/api/post/{$id}");
+        $response = $this->getJson("/api/place/{$id}");
         $this->_test_notfound($response);
     }
     
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
-    public function test_post_update(object $post)
+    public function test_place_update(object $place)
     {
         // Create fake file
         $name  = "avatar.png";
         $size = 500; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
+        $description = "description";
         $latitude = 1.43;
         $longitude = 0.21;
         $visibility_id = 1;
         $author_id = 2;
-
-        // Upload fake post using API web service
-        $response = $this->putJson("/api/post/{$post->id}", [
+        // Upload fake place using API web service
+        $response = $this->putJson("/api/place/{$place->id}", [
+            "name"=>$name,
             "upload" => $upload,
-            "body" => $body,
+            "description" => $description,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "visibility_id" => $visibility_id,
@@ -166,8 +170,9 @@ class PostTest extends TestCase
 
         // Check validation errors
         $response->assertValid([
+            "name",
             "upload",
-            "body",
+            "description",
             "latitude",
             "longitude",
             "visibility_id",
@@ -185,25 +190,26 @@ class PostTest extends TestCase
     }
     
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
-    public function test_post_update_error(object $post)
+    public function test_place_update_error(object $place)
     {
         // Create fake file with invalid max size
         $name  = "photo.jpg";
         $size = 3000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
+        $description = "description";
         $latitude = 1.43;
         $longitude = 0.21;
         $visibility_id = 1;
         $author_id = 2;
 
 
-        // Upload fake post using API web service
-        $response = $this->putJson("/api/post/{$post->id}", [
+        // Upload fake place using API web service
+        $response = $this->putJson("/api/place/{$place->id}", [
+            "name"=>$name,
             "upload" => $upload,
-            "body" => $body,
+            "description" => $description,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "visibility_id" => $visibility_id,
@@ -211,89 +217,89 @@ class PostTest extends TestCase
         ]);
 
         // Upload fake file using API web service
-        $response = $this->putJson("/api/post/{$post->id}", [
+        $response = $this->putJson("/api/place/{$place->id}", [
             "upload" => $upload,
         ]);
         // Check ERROR response
         $this->_test_error($response);
     }
     
-    public function test_post_update_notfound()
+    public function test_place_update_notfound()
     {
         $id = "not_exists";
-        $response = $this->putJson("/api/post/{$id}", []);
+        $response = $this->putJson("/api/place/{$id}", []);
         $this->_test_notfound($response);
     }
 
 
          /**
-     * @depends test_post_create
+     * @depends test_place_create
      */
-    public function test_post_like(object $post)
+    public function test_place_favorite(object $place)
     {
         Sanctum::actingAs(self::$testUser);
-        $response = $this->postJson("/api/posts/{$post->id}/like");
+        $response = $this->postJson("/api/places/{$place->id}/favorite");
         // Check OK response
         $this->_test_ok($response);
         
     }
 
     /**
-     * @depends test_post_create
+     * @depends test_place_create
      */
-    public function test_post_like_error(object $post)
+    public function test_place_favorite_error(object $place)
     {
         Sanctum::actingAs(self::$testUser);
-        $response = $this->postJson("/api/posts/{$post->id}/like");
+        $response = $this->postJson("/api/places/{$place->id}/favorite");
         // Check ERROR response
         $response->assertStatus(500);
         
     }
    /**
-     * @depends test_post_create
+     * @depends test_place_create
      */
-    public function test_post_unlike(object $post)
+    public function test_place_unfavorite(object $place)
     {
         Sanctum::actingAs(self::$testUser);
         // Read one file
-        $response = $this->deleteJson("/api/posts/{$post->id}/like");
+        $response = $this->deleteJson("/api/places/{$place->id}/favorite");
         // Check OK response
         $this->_test_ok($response);
         
     }
 
     /**
-     * @depends test_post_create
+     * @depends test_place_create
      */
-    public function test_post_unlike_error(object $post)
+    public function test_place_unfavorite_error(object $place)
     {
         Sanctum::actingAs(self::$testUser);
-        $response = $this->deleteJson("/api/posts/{$post->id}/like");
+        $response = $this->deleteJson("/api/places/{$place->id}/favorite");
         // Check ERROR response
         $response->assertStatus(500);
         
     }
     
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
-    public function test_post_delete(object $post)
+    public function test_place_delete(object $place)
     {
         // Delete one file using API web service
-        $response = $this->deleteJson("/api/post/{$post->id}");
+        $response = $this->deleteJson("/api/place/{$place->id}");
         // Check OK response
         $this->_test_ok($response);
     }
     
-    public function test_post_delete_notfound()
+    public function test_place_delete_notfound()
     {
         $id = "not_exists";
-        $response = $this->deleteJson("/api/post/{$id}");
+        $response = $this->deleteJson("/api/place/{$id}");
         $this->_test_notfound($response);
 
     }
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
     
     
@@ -312,7 +318,7 @@ class PostTest extends TestCase
     }
     
     /**
-        * @depends test_post_create
+        * @depends test_place_create
         */
 
     protected function _test_error($response)

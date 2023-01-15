@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\Place;
 use App\Models\File;
 use App\Models\User;
-use App\Models\Like;
+use App\Models\Favorite;
 
 
-class PostController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +19,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $places = place::all();
         return response()->json([
             'success' => true,
-            'data' => $posts,
+            'data' => $places,
         ], 200);
     }
 
@@ -39,11 +39,13 @@ class PostController extends Controller
             'upload' => 'required|mimes:gif,jpeg,jpg,png|max:2048'
         ]);
 
+        
         // Obtenir dades del fitxer
+        $name = $request->get('name');
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
         $fileSize = $upload->getSize();
-        $body = $request->get('body'); 
+        $description = $request->get('description'); 
         $latitude = $request->get('latitude');
         $longitude = $request->get('longitude'); 
         $visibility_id = $request->get('visibility_id');
@@ -67,8 +69,9 @@ class PostController extends Controller
                 'filepath' => $filePath,
                 'filesize' => $fileSize,
             ]);
-            $post = Post::create([
-                'body' => $body,
+            $place = place::create([
+                'name' => $name,
+                'description' => $description,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
                 'file_id' => $file->id,
@@ -79,7 +82,7 @@ class PostController extends Controller
             // Patró PRG amb missatge d'èxit
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 201);
         } else {
             \Log::debug("Local storage FAILS");
@@ -98,17 +101,17 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        if($post == null)
+        $place = place::find($id);
+        if($place == null)
         {
             return response()->json([
                 'success'  => false,
-                'message' => 'Error post not found'
+                'message' => 'Error place not found'
             ], 404);
         } else {
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 200);
         }
     }
@@ -122,11 +125,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
+        $place = place::find($id);
 
-        if($post)
+        if($place)
         {
-            $file = File::find($post->file_id);
+            $file = File::find($place->file_id);
             // Validar fitxer
             $validatedData = $request->validate([
                 'upload' => 'required|mimes:gif,jpeg,jpg,png|max:2048'
@@ -136,7 +139,7 @@ class PostController extends Controller
             $upload = $request->file('upload');
             $fileName = $upload->getClientOriginalName();
             $fileSize = $upload->getSize();
-            $body = $request->get('body'); 
+            $description = $request->get('description'); 
             $latitude = $request->get('latitude');
             $longitude = $request->get('longitude'); 
             $visibility_id = $request->get('visibility_id');
@@ -158,27 +161,27 @@ class PostController extends Controller
                 $file->filesize = $fileSize;
                 $file->save();
 
-                $post->body = $body;
-                $post->latitude = $latitude;
-                $post->longitude = $longitude;
-                $post->visibility_id = $visibility_id;
-                $post->save();
+                $place->description = $description;
+                $place->latitude = $latitude;
+                $place->longitude = $longitude;
+                $place->visibility_id = $visibility_id;
+                $place->save();
                 \Log::debug("DB storage OK");
                 return response()->json([
                     'success' => true,
-                    'data'    => $post
+                    'data'    => $place
                 ], 201);
             } else {
                 \Log::debug("Local storage FAILS");
                 return response()->json([
                     'success'  => false,
-                    'message' => 'Error uploading post'
+                    'message' => 'Error uploading place'
                 ], 500);
             }
         } else {
             return response()->json([
                 'success'  => false,
-                'message' => 'Error post not found'
+                'message' => 'Error place not found'
             ], 404);
         }   
     }
@@ -191,20 +194,20 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $place = place::find($id);
         
-        if($post == null)
+        if($place == null)
         {
             return response()->json([
                 'success'  => false,
-                'message' => 'Error post not found'
+                'message' => 'Error place not found'
             ], 404);
         }else{
-            $file = File::find($post->file_id);
-            $post->delete();
+            $file = File::find($place->file_id);
+            $place->delete();
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 200);
         }
 
@@ -212,63 +215,63 @@ class PostController extends Controller
             \Log::debug(" Alredy Exist");
             return response()->json([
                 'success'  => false,
-                'message' => 'Error post exist'
+                'message' => 'Error place exist'
             ], 404);
         }else{
             \Storage::disk('public')->delete($file->filepath);
             $file->delete();
-            \Log::debug("Post Delete");
+            \Log::debug("place Delete");
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 200);
         }  
     }
 
-    public function like($id)
+    public function favorite($id)
     {
-        $post=Post::find($id);
-        if (Like::where([
+        $place=place::find($id);
+        if (Favorite::where([
                 ['user_id', "=" , auth()->user()->id],
-                ['post_id', "=" ,$id],
+                ['place_id', "=" ,$id],
             ])->exists()) {
             return response()->json([
                 'success'  => false,
-                'message' => 'The post is already like'
+                'message' => 'The place is already favorite'
             ], 500);
         }else{
-            $like = Like::create([
+            $favorite = favorite::create([
                 'user_id' => auth()->user()->id,
-                'post_id' => $post->id,
+                'place_id' => $place->id,
             ]);
             return response()->json([
                 'success' => true,
-                'data'    => $like
+                'data'    => $favorite
             ], 200);
         }        
     }
 
-    public function unlike($id)
+    public function unfavorite($id)
     {
-        $post=Post::find($id);
-        if (Like::where([['user_id', "=" ,auth()->user()->id],['post_id', "=" ,$post->id],])->exists()) {
+        $place=place::find($id);
+        if (favorite::where([['user_id', "=" ,auth()->user()->id],['place_id', "=" ,$place->id],])->exists()) {
             
-            $like = Like::where([
+            $favorite = favorite::where([
                 ['user_id', "=" ,auth()->user()->id],
-                ['post_id', "=" ,$id],
+                ['place_id', "=" ,$id],
             ]);
-            $like->first();
+            $favorite->first();
     
-            $like->delete();
+            $favorite->delete();
 
             return response()->json([
                 'success' => true,
-                'data'    => $post
+                'data'    => $place
             ], 200);
         }else{
             return response()->json([
                 'success'  => false,
-                'message' => 'The post is not like'
+                'message' => 'The place is not favorite'
             ], 500);
             
         }  
