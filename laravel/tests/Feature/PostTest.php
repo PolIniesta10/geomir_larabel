@@ -49,14 +49,14 @@ class PostTest extends TestCase
             ['*'] // grant all abilities to the token
         );
         // Create fake file
-        $name  = "avatar.png";
-        $size = 500; /*KB*/
+        $name  = "hola.png";
+        $size = 600; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
-        $latitude = 1.14;
-        $longitude = 0.43;
-        $visibility_id = 1;
-        $author_id = 2;
+        $body = "hola";
+        $latitude = 2;
+        $longitude = 3;
+        $visibility_id = 2;
+        $author_id = 3;
 
         // Upload fake post using API web service
         $response = $this->postJson("/api/post", [
@@ -95,8 +95,8 @@ class PostTest extends TestCase
     public function test_post_create_error()
     {
         // Create fake post with invalid characters
-        $name  = "avatar.png";
-        $size = 5000; /*KB*/
+        $name  = "hola.png";
+        $size = 6000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
         $body = 1;
         $latitude = 'error';
@@ -141,13 +141,13 @@ class PostTest extends TestCase
     public function test_post_update(object $post)
     {
         // Create fake file
-        $name  = "avatar.png";
+        $name  = "hola.png";
         $size = 500; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
-        $latitude = 1.43;
-        $longitude = 0.21;
-        $visibility_id = 1;
+        $body = "hola";
+        $latitude = 2;
+        $longitude = 3;
+        $visibility_id = 2;
         $author_id = 2;
 
         // Upload fake post using API web service
@@ -190,14 +190,14 @@ class PostTest extends TestCase
     public function test_post_update_error(object $post)
     {
         // Create fake file with invalid max size
-        $name  = "photo.jpg";
+        $name  = "hola.jpg";
         $size = 3000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = "body";
-        $latitude = 1.43;
-        $longitude = 0.21;
-        $visibility_id = 1;
-        $author_id = 2;
+        $body = "hola";
+        $latitude = 2;
+        $longitude = 3;
+        $visibility_id = 2;
+        $author_id = 1;
 
 
         // Upload fake post using API web service

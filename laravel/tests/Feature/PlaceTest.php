@@ -49,14 +49,14 @@ class PlaceTest extends TestCase
             ['*'] // grant all abilities to the token
         );
         // Create fake file
-        $name  = "avatar.png";
-        $size = 500; /*KB*/
+        $name  = "hola.png";
+        $size = 600; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
         $description = "description";
-        $latitude = 1.14;
-        $longitude = 0.43;
-        $visibility_id = 1;
-        $author_id = 2;
+        $latitude = 2;
+        $longitude = 3;
+        $visibility_id = 2;
+        $author_id = 1;
 
         // Upload fake place using API web service
         $response = $this->postJson("/api/place", [
@@ -97,10 +97,10 @@ class PlaceTest extends TestCase
     public function test_place_create_error()
     {
         // Create fake place with invalid characters
-        $name  = "avatar.png";
+        $name  = "hola.png";
         $size = 5000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $description = 1;
+        $description = 2;
         $latitude = 'error';
         $longitude = 'error';
         $visibility_id = 'error';
@@ -145,14 +145,14 @@ class PlaceTest extends TestCase
     public function test_place_update(object $place)
     {
         // Create fake file
-        $name  = "avatar.png";
-        $size = 500; /*KB*/
+        $name  = "hola.png";
+        $size = 600; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
         $description = "description";
-        $latitude = 1.43;
-        $longitude = 0.21;
-        $visibility_id = 1;
-        $author_id = 2;
+        $latitude = 2;
+        $longitude = 4;
+        $visibility_id = 3;
+        $author_id = 1;
         // Upload fake place using API web service
         $response = $this->putJson("/api/place/{$place->id}", [
             "name"=>$name,
@@ -195,14 +195,14 @@ class PlaceTest extends TestCase
     public function test_place_update_error(object $place)
     {
         // Create fake file with invalid max size
-        $name  = "photo.jpg";
-        $size = 3000; /*KB*/
+        $name  = "hola.jpg";
+        $size = 6000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
         $description = "description";
-        $latitude = 1.43;
-        $longitude = 0.21;
+        $latitude = 2;
+        $longitude = 3;
         $visibility_id = 1;
-        $author_id = 2;
+        $author_id = 3;
 
 
         // Upload fake place using API web service
