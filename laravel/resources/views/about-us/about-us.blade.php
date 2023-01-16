@@ -63,13 +63,37 @@
         ev.target.appendChild(document.getElementById(data));
     }
 
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    myBtn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
 </script>
 
 <div class="title-about-us">
     <h1 class="title">Conoce a nuestro equipo</h1>
 </div>
-
-<div class="container-about-us" >
+y
+<div class="container-about-us" id="myBtn">
 
     <div class="drag-drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     <div class="drag-drop" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -143,15 +167,11 @@
 /////////////////////////////////////////////////////////////// -->
 
 
-<div class="modal">
+<div id="myModal" class="modal">
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        <span class="close">&times;</span>
         <div class="modal-body"></div>
-            <video id="slider" autoplay loop>
+            <video id="slider" autoplay loop muted>
                 <source src="/videos/CrazyFrog.mp4" type="video/mp4">
             </video>
             <ul class="menu-navigation">
