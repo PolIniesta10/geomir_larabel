@@ -7,13 +7,6 @@ use App\Models\Post;
 use App\Models\File;
 use App\Models\User;
 use App\Models\Like;
-<<<<<<< HEAD
-use App\Models\Visibility;
-use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
-=======
-
->>>>>>> b1.0
 
 class PostController extends Controller
 {
@@ -128,72 +121,6 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
-<<<<<<< HEAD
-        if ($post){   
-
-            // Validar fitxer
-            $validatedData = $request->validate([
-                'upload' => 'mimes:gif,jpeg,jpg,mp4,png|max:1024',
-            ]);
-        
-            $file=File::find($post->file_id);
-
-            // Obtenir dades del fitxer
-
-            $upload = $request->file('upload');
-            $controlNull = FALSE;
-            if(! is_null($upload)){
-                $fileName = $upload->getClientOriginalName();
-                $fileSize = $upload->getSize();
-
-                \Log::debug("Storing file '{$fileName}' ($fileSize)...");
-
-                // Pujar fitxer al disc dur
-                $uploadName = time() . '_' . $fileName;
-                $filePath = $upload->storeAs(
-                    'uploads',      // Path
-                    $uploadName ,   // Filename
-                    'public'        // Disk
-                );
-            }
-            else{
-                $filePath = $file->filepath;
-                $fileSize = $file->filesize;
-                $controlNull = TRUE;
-            }
-
-            if (\Storage::disk('public')->exists($filePath)) {
-                if ($controlNull == FALSE){
-                    \Storage::disk('public')->delete($file->filepath);
-                    \Log::debug("Local storage OK");
-                    $fullPath = \Storage::disk('public')->path($filePath);
-                    \Log::debug("File saved at {$fullPath}");
-
-                }
-
-                // Desar dades a BD
-
-                $file->filepath=$filePath;
-                $file->filesize=$fileSize;
-                $file->save();
-                \Log::debug("DB storage OK");
-                $post->body=$request->input('body');
-                $post->latitude=$request->input('latitude');
-                $post->longitude=$request->input('longitude');
-                $post->visibility_id=$request->input('visibility_id');
-                $post->save();
-
-                // Patró PRG amb missatge d'èxit
-                return response()->json([
-                    'success' => true,
-                    'data'    => $post
-                ], 200);
-
-
-            } else {
-                \Log::debug("Local storage FAILS");
-                // Patró PRG amb missatge d'error
-=======
 
         if($post)
         {
@@ -241,22 +168,11 @@ class PostController extends Controller
                 ], 201);
             } else {
                 \Log::debug("Local storage FAILS");
->>>>>>> b1.0
                 return response()->json([
                     'success'  => false,
                     'message' => 'Error uploading post'
                 ], 500);
             }
-<<<<<<< HEAD
-        }
-        else{
-            return response()->json([
-                'success'  => false,
-                'message' => 'Error searching post'
-            ], 404);
-        }
-    }
-=======
         } else {
             return response()->json([
                 'success'  => false,
@@ -265,7 +181,6 @@ class PostController extends Controller
         }   
     }
 
->>>>>>> b1.0
     /**
      * Remove the specified resource from storage.
      *
