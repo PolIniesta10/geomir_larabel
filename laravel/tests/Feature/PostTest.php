@@ -6,53 +6,87 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
+
 
 class PostTest extends TestCase
 {
+    public static User $testUser;
+ 
+    public static function setUpBeforeClass() : void
+    {
+        parent::setUpBeforeClass();
+    
+        // Create test user (BD store later)
+        $name = "test_" . time();
+        self::$testUser = new User([
+            "name"      => "{$name}",
+            "email"     => "{$name}@mailinator.com",
+            "password"  => "12345678"
+        ]);
+    }
+
     public function test_post_list()
     {
-        // List all files using API web service
-        $response = $this->getJson("/api/posts");
+        // List all posts using API web service
+        $response = $this->getJson("/api/post");
         // Check OK response
         $this->_test_ok($response);
         // Check JSON dynamic values
         $response->assertJsonPath("data",
             fn ($data) => is_array($data)
         );
+
+        self::$testUser->save();
     }
-    
+ 
     public function test_post_create() : object
     {
+        $user = self::$testUser;
+        Sanctum::actingAs(
+            $user,
+            ['*'] // grant all abilities to the token
+        );
         // Create fake file
-        $name  = "jeje.png";
-        $size = 500; /*KB*/
+        $name  = "hola.png";
+        $size = 600; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
+        $body = "hola";
+        $latitude = 3;
+        $longitude = 5;
+        $visibility_id = 2;
+        $author_id = 3;
 
-        // Create fake post
-
-        $placeName = "hola";
-        $placeDescription = "si";
-        $placeLatitude = 4;
-        $placeLatitude = 23;
-        $placeCategory_id = 3;
-        $placeVisibility_id = 2;
-        $placeAuthor_id = 4;
-
-
-        // Upload fake file using API web service
-        $response = $this->postJson("/api/files", [
+        // Upload fake post using API web service
+        $response = $this->postJson("/api/post", [
             "upload" => $upload,
+            "body" => $body,
+            "latitude" => $latitude,
+            "longitude" => $longitude,
+            "visibility_id" => $visibility_id,
+            "author_id" => $author_id,
         ]);
+        
+
         // Check OK response
         $this->_test_ok($response, 201);
+
         // Check validation errors
-        $response->assertValid(["upload"]);
-        // Check JSON exact values
-        $response->assertJsonPath("data.filesize", $size*1024);
+        $response->assertValid([
+            "upload",
+            "body",
+            "latitude",
+            "longitude",
+            "visibility_id",
+            "author_id",
+        ]);
+
         // Check JSON dynamic values
         $response->assertJsonPath("data.id",
             fn ($id) => !empty($id)
         );
+
         // Read, update and delete dependency!!!
         $json = $response->getData();
         return $json->data;
@@ -114,7 +148,7 @@ class PostTest extends TestCase
         $latitude = 2;
         $longitude = 3;
         $visibility_id = 2;
-        $author_id = 2;
+        $author_id = 1;
 
         // Upload fake post using API web service
         $response = $this->putJson("/api/post/{$post->id}", [
@@ -157,13 +191,13 @@ class PostTest extends TestCase
     {
         // Create fake file with invalid max size
         $name  = "hola.jpg";
-        $size = 3000; /*KB*/
+        $size = 6000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
         $body = "hola";
         $latitude = 2;
         $longitude = 3;
-        $visibility_id = 2;
-        $author_id = 1;
+        $visibility_id = 1;
+        $author_id = 2;
 
 
         // Upload fake post using API web service
