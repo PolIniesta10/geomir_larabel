@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::delete('/posts/{post}/like', [App\Http\Controllers\PostController::class,
 
 Route::post('/places/{place}/favorite', [App\Http\Controllers\PlaceController::class, 'favorite'])->name('places.favorite');
 Route::delete('/places/{place}/favorite', [App\Http\Controllers\PlaceController::class, 'unfavorite'])->name('places.unfavorite');
+
+Route::get('/about-us', [App\Http\Controllers\AboutUsController::class, 'aboutus']);
 
 
 

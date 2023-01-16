@@ -179,7 +179,7 @@
     <div class="cajasfooter1">
         <div class="cajaizqfooter">
             <p>LookTracer</p>
-            <p>Blog</p>
+            <a href="{{ url('about-us')}}" target="_blank">About us</a>
             <p>Contact</p>
         </div>
     </div>
