@@ -180,6 +180,7 @@
         <div class="cajaizqfooter">
             <p>LookTracer</p>
             <a href="{{ url('about-us')}}" target="_blank">About us</a>
+            <a href="{{ url('contacte')}}" target="_blank">Contacte</a>
             <p>Contact</p>
         </div>
     </div>

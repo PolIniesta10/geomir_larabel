@@ -52,4 +52,5 @@ Route::delete('/places/{place}/favorite', [App\Http\Controllers\PlaceController:
 Route::get('/about-us', [App\Http\Controllers\AboutUsController::class, 'aboutus']);
 
 
+Route::get('/contacte', [App\Http\Controllers\ContacteController::class, 'contacte']);
 
