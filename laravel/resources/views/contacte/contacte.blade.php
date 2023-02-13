@@ -45,6 +45,33 @@
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
+                var marker = L.marker([41.23112, 1.72866]).addTo(map);
+                marker.bindPopup("Geo-Mir").openPopup();
+
+                var circle = L.circle([41.23112, 1.72866], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 90
+                }).addTo(map);
+                circle.bindPopup("Els nostres voltants ");
+
+                var popup = L.popup()
+                    .setLatLng([41.23112, 1.72866])
+                    .setContent("La nostra localització")
+                    .openOn(map);
+
+                navigator.geolocation.getCurrentPosition(showPosition);
+                function showPosition(position)
+                {
+                    var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                    var popup = L.popup()
+                    .setLatLng([position.coords.latitude, position.coords.longitude])
+                    .setContent("Vostè està aquí")
+                    .openOn(map);
+                
+                }
+
             </script>
         </div>
     </div>

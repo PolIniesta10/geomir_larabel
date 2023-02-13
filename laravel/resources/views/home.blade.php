@@ -179,9 +179,8 @@
     <div class="cajasfooter1">
         <div class="cajaizqfooter">
             <p>LookTracer</p>
-            <a href="{{ url('about-us')}}" target="_blank">About us</a>
-            <a href="{{ url('contacte')}}" target="_blank">Contacte</a>
-            <p>Contact</p>
+            <p><a href="{{ url('about-us')}}" target="_blank">About us</a></p>
+            <p><a href="{{ url('contacte')}}" accesskey="f">Contacte</a></p>
         </div>
     </div>
 </div>
