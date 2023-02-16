@@ -36,8 +36,6 @@
             <h1>Vols visitar-nos?</h1>
             <h2>Ubica'ns al mapa</h2>
         </div>
-
-        <p class="keyText"></p>
     
         <div id="map">
             <script>
@@ -46,39 +44,6 @@
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
-
-                var marker = L.marker([41.23112, 1.72866]).addTo(map);
-                marker.bindPopup("Geo-Mir").openPopup();
-
-                var circle = L.circle([41.23112, 1.72866], {
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 0.5,
-                    radius: 90
-                }).addTo(map);
-                circle.bindPopup("Els nostres voltants ");
-
-                var popup = L.popup()
-                    .setLatLng([41.23112, 1.72866])
-                    .setContent("La nostra localització")
-                    .openOn(map);
-
-                navigator.geolocation.getCurrentPosition(showPosition);
-                function showPosition(position)
-                {
-                    var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
-                    var popup = L.popup()
-                    .setLatLng([position.coords.latitude, position.coords.longitude])
-                    .setContent("Vostè està aquí")
-                    .openOn(map);
-                
-                }
-
-                Mousetrap.bind('alt', function() {
-                    highlight(9);
-                    // document.querySelector("keyText").innerHTML = "Latitude:";
-                    // + position.coords.latitude, "Longitude:" + position.coords.longitude
-                });
 
             </script>
         </div>
