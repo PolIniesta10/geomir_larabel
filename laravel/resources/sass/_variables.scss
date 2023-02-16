@@ -1283,12 +1283,7 @@ footer {
 //                    CONTACTE
 // #######################################################
 
-.h1contacte {
-    font-weight: 300;
-    font-size: 60;
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
+//DA ESTILO AL CONTAINER DEL VIDEO
 .showcase {
     position: relative;
     height: 100vh;
@@ -1301,6 +1296,8 @@ footer {
     color: #fff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+//DA ESTILO AL SUB-CONTAINER DEL VIDEO
 .video-container {
     position: absolute;
     top: 0;
@@ -1310,6 +1307,8 @@ footer {
     overflow: hidden;
     background: black no-repeat center center/cover;
 }
+
+//DA ESTILO AL VIDEO
 .video-container video {
     min-width: 100;
     min-height: 100;
@@ -1321,20 +1320,29 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+//DA ESTILO DETRAS DEL SUB-CONTAINER DEL VIDEO 
 .video-container:after {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: rgba(0,0,0,0.4);
 
 }
+
+//DA ESTILO AL CONTAINER DE LOS TEXTOS
 .content {
     z-index: 0;
     margin-bottom: 150px;
 }
+
+//DA ESTILO AL TITULO DEL CONTAINER DEL VIDEO
+.h1contacte {
+    font-weight: 300;
+    font-size: 60;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+//DA ESTILO AL TITULO DEL CONTAINER DEL VIDEO
 .btncontacte {
     display: inline-block;
     padding: 10px 30px;

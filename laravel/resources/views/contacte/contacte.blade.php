@@ -36,6 +36,8 @@
             <h1>Vols visitar-nos?</h1>
             <h2>Ubica'ns al mapa</h2>
         </div>
+
+        <p class="keyText"></p>
     
         <div id="map">
             <script>
@@ -71,6 +73,12 @@
                     .openOn(map);
                 
                 }
+
+                Mousetrap.bind('alt', function() {
+                    highlight(9);
+                    // document.querySelector("keyText").innerHTML = "Latitude:";
+                    // + position.coords.latitude, "Longitude:" + position.coords.longitude
+                });
 
             </script>
         </div>
