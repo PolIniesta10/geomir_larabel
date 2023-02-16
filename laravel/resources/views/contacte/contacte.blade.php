@@ -20,6 +20,15 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+<!-- <style>
+    /* DESHABILITA SCROLL LATERAL */
+    ::-webkit-scrollbar {
+        display: none;
+    
+    }
+
+</style> -->
+
 <section class="showcase">
     <div class="video-container">
         <video src="/videos/video.mov" autoplay muted loop></video>
@@ -41,15 +50,18 @@
     
         <div id="map">
             <script>
+                // CREACIÓN MAPA
                 var map = L.map('map').setView([41.23112, 1.72866], 18);
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
+                // CREACIÓN MARCADOR EN EL MAPA ESTATICO
                 var marker = L.marker([41.23112, 1.72866]).addTo(map);
                 marker.bindPopup("Geo-Mir").openPopup();
 
+                // CREACIÓN RADIO EN EL MAPA ESTATICO
                 var circle = L.circle([41.23112, 1.72866], {
                     color: 'red',
                     fillColor: '#f03',
@@ -58,27 +70,58 @@
                 }).addTo(map);
                 circle.bindPopup("Els nostres voltants ");
 
+                // CREACIÓN POPUP LOCALIZACION ESTATICO
                 var popup = L.popup()
                     .setLatLng([41.23112, 1.72866])
                     .setContent("La nostra localització")
                     .openOn(map);
 
-                navigator.geolocation.getCurrentPosition(showPosition);
-                function showPosition(position)
-                {
-                    var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
-                    var popup = L.popup()
-                    .setLatLng([position.coords.latitude, position.coords.longitude])
-                    .setContent("Vostè està aquí")
-                    .openOn(map);
-                
-                }
 
-                Mousetrap.bind('alt', function() {
-                    highlight(9);
-                    // document.querySelector("keyText").innerHTML = "Latitude:";
-                    // + position.coords.latitude, "Longitude:" + position.coords.longitude
-                });
+                // CREACION ATAJOS TECLADO
+                document.onkeyup = function(e) {
+
+                    // MUESTRA LOCALIZACION DINAMICA (CTRL + ALT + G)
+                    if (e.ctrlKey && e.altKey && e.which == 71) {
+                        navigator.geolocation.getCurrentPosition(success);
+                        function success(position) {
+                        var coordenadas = position.coords;
+                        alert("Tu posición actual es :"+
+                        "\n- Tu Latitud : " + coordenadas.latitude+
+                        "\n- Tu Longitud: " + coordenadas.longitude);
+                        };
+                    } 
+                    // REDIRIGE LOCALIZACION AL MIR (CTRL + ALT + C)
+                    else if (e.ctrlKey && e.altKey && e.which == 67) {
+                        alert("Acepta para centrar el mapa  en el INS Joaquim Mir");
+                        map.remove();
+                        map = L.map('map').setView([41.2310177, 1.7279358], 17);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
+                    }
+
+                    // CREACIÓN RADIO EN EL MAPA ESTATICO
+                    var circle = L.circle([41.23112, 1.72866], {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.5,
+                        radius: 90
+                    }).addTo(map);
+                    circle.bindPopup("Els nostres voltants ");
+
+                    // CREACIÓN MARCADOR EN EL MAPA DINAMICO
+                    navigator.geolocation.getCurrentPosition(showPosition);
+
+                    function showPosition(position){
+                        var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                        var popup = L.popup()
+                        .setLatLng([position.coords.latitude, position.coords.longitude])
+                        .setContent("Vostè està aquí")
+                        .openOn(map);
+                    }
+
+                }
 
             </script>
         </div>
@@ -96,8 +139,6 @@
             </div>
             
         </div>
-        
-
     </div>
 </section>
 
