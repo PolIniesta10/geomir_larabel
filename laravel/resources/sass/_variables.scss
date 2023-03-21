@@ -8,11 +8,11 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-body{
-    background-image: url("https://www.todofondos.net/wp-content/uploads/1600x900-Fondo-de-Pantalla-Negro-1024x576.jpg"); 
-    background-attachment: fixed;
-    background-size: cover;
-}
+// body{
+//     background-image: url("https://www.todofondos.net/wp-content/uploads/1600x900-Fondo-de-Pantalla-Negro-1024x576.jpg"); 
+//     background-attachment: fixed;
+//     background-size: cover;
+// }
 
 // #######################################################
 //                     TOP BAR
@@ -405,6 +405,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.WCAG-logo{
+    position:absolute;
+    top: 7%;
+    right: 17%;
 }
 // #######################################################
 //                     SIDEBAR MENU
@@ -1274,6 +1280,92 @@ footer {
     background-color: rgba(255, 255, 255, 0.075);
     box-shadow: 0 5px 10px black;
 }
+
+// ACCESSIBILITAT
+
+#playEle, #playAll{
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+}
+
+#playEle.played, #playAll.played{
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+}
+
+#pauseEle, #pauseAll{
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
+    display: none;
+}
+
+#pauseEle.paused, #pauseAll.paused{
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+}
+
+#stopEle, #stopAll{
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop.svg);
+}
+
+#stopEle.stopped, #stopAll.stopped {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+}
+
+.titleSpeech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 20px;
+}
+
+.speechSynthesis{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contSpeech{
+    width: 30%;
+    height: 125px;
+    background-color: transparent;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 2px rgba(27, 27, 27, 0.75);
+}
+
+.textSpeech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.buttonsSpeech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonsSpeech button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 48px;
+    outline: none;
+    padding: 0;
+    width: 48px;
+}
+
+#leerTexto{
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    margin-top: 3px;
+}
+
+// FIN ACCESSIBILITAT
 
 // #######################################################
 //                    FINAL ABOUT US
