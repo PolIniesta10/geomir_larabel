@@ -18,6 +18,8 @@
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/web-speech-api/0.1.1/web-speech-api.js"></script>
+
 </head>
 
 <!-- <style>
@@ -28,7 +30,17 @@
     }
 
 </style> -->
+<script>
+    const recognition = new window.SpeechRecognition();
+    recognition.lang = 'es-ES'; // idioma español
 
+    recognition.onresult = function(event) {
+        const result = event.results[event.results.length - 1][0].transcript;
+        console.log(result);
+    }
+    recognition.start();
+
+</script>
 <section class="showcase">
     <div class="video-container">
         <video src="/videos/video.mov" autoplay muted loop></video>
