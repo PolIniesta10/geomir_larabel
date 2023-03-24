@@ -18,6 +18,7 @@
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <!-- <style>
@@ -28,7 +29,6 @@
     }
 
 </style> -->
-
 <script>
     // Obtener la instancia del objeto de reconocimiento de voz
 const recognition = new webkitSpeechRecognition();
