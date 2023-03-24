@@ -29,6 +29,52 @@
 
 </style> -->
 
+<script>
+    // Obtener la instancia del objeto de reconocimiento de voz
+const recognition = new webkitSpeechRecognition();
+
+// Configurar el reconocimiento de voz para que se detenga después de cada frase
+recognition.lang = "es-ES";
+recognition.continuous = true;
+recognition.interimResults = true;
+recognition.maxAlternatives = 9;
+
+// Agregar un evento de resultado que se activará cuando el reconocimiento de voz finalice
+recognition.onresult = function(event) {
+  // Obtener la transcripción del resultado
+  const transcript = event.results[event.results.length - 1][0].transcript
+
+  // Comprobar si la transcripción es "zoom in"
+  if (transcript.toLowerCase() === "grande") {
+  // Aumentar el zoom en un 10%
+  document.body.style.zoom = parseFloat(document.body.style.zoom || 1) + 0.5;
+  }
+
+  // Comprobar si la transcripción es "zoom out"
+ if (transcript.toLowerCase() === "pequeño") {
+    // Disminuir el zoom en un 10%
+    document.body.style.zoom = parseFloat(document.body.style.zoom || 1) - 0.5;
+  }
+
+  // Comprobar si la transcripción es "scroll up"
+  if (transcript.toLowerCase() === "sube") {
+    // Desplazarse hacia arriba
+    window.scroll(0, window.scrollY - window.innerHeight);
+  }
+
+  // Comprobar si la transcripción es "scroll down"
+  if (transcript.toLowerCase() === "baja") {
+    // Desplazarse hacia abajo  
+    const scrollHeight = document.body.scrollHeight;
+    window.scrollTo(0, scrollHeight);
+  }
+};
+
+// Iniciar el reconocimiento de voz cuando se haga clic en un botón
+recognition.start();
+
+</script>
+
 <section class="showcase">
     <div class="video-container">
         <video src="/videos/video.mov" autoplay muted loop></video>
@@ -100,6 +146,13 @@
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                         }).addTo(map);
                     }
+                    // MUESTRA LOCALIZACION DINAMICA (SHIFT + A)
+                    else if (e.shiftKey && e.which == 65) {
+                        // Restaurar el nivel de zoom a 1
+                        document.body.style.zoom = 1;
+                        // Restaurar la posición de desplazamiento a la parte superior de la página
+                        window.scrollTo(0, 0);
+                    }
 
                     // CREACIÓN RADIO EN EL MAPA ESTATICO
                     var circle = L.circle([41.23112, 1.72866], {
@@ -141,6 +194,4 @@
         </div>
     </div>
 </section>
-
-
 @endsection
